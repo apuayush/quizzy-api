@@ -1,0 +1,67 @@
+body{
+	font-family: 'Raleway', sans-serif;
+	overflow-x: hidden;
+	margin:0;
+	padding:0;
+	font-size:12px;
+    background: #F5EEF8 url('https://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png') repeat 0 0;
+	-webkit-animation: 10s linear 0s normal none infinite animate;
+	-moz-animation: 10s linear 0s normal none infinite animate;
+	-ms-animation: 10s linear 0s normal none infinite animate;
+	-o-animation: 10s linear 0s normal none infinite animate;
+	animation: 10s linear 0s normal none infinite animate;
+	overflow-y:hidden; 
+}
+
+.qbutton{
+	height:40px;
+	width:40px;
+	border:0;
+	border-radius: 4px;
+	background-color: #F7F9F9;
+}
+
+.qbutton:hover{
+	cursor: pointer;
+	background-color: #F2F3F4;
+}
+
+
+h1{
+	font-size:30px;
+}
+
+.sub_answer{
+	position: relative;
+	left: 40px;
+	height: 40px;
+	width: 100px;
+	background-color: #148F77;
+	border:0;
+	border-radius: 3px;
+	cursor: pointer;
+	color:white;
+	font-family: Tahoma;
+}
+
+.skip{
+	position: relative;
+	left: 40px;
+	height: 40px;
+	width: 100px;
+	background-color:#CB4335;
+	border:0;
+	border-radius: 3px;
+	cursor: pointer;
+	color: white;
+	font-family: Tahoma;
+}
+
+.sub_answer:hover{
+	background-color: #1ABC9C;
+}
+
+.skip:hover{
+	background-color: #E74C3C;
+}
+

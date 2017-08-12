@@ -1,0 +1,23 @@
+.box{
+	height:260px;
+	width:300px;
+	border:0;
+	border-radius: 4px;
+	background-color: #BB8FCE;
+	text-align:center;
+	color:white;
+	font-family: 'Raleway', sans-serif;
+	font-size:55px;
+}
+
+.boxbig{
+	padding: 20px;
+}
+
+.item_new:hover{
+	text-decoration: none;
+}
+
+a{
+	text-decoration: none;
+}
