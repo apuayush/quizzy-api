@@ -2,8 +2,8 @@
 <html>
 <head>
 <link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="template.css" type="text/css">
-<script src="template.js"></script>
+<link rel="stylesheet" href="../static/css/template.css" type="text/css">
+<script src="../static/js/template.js"></script>
 <title>Template</title>
 </script>
 </head>
@@ -15,7 +15,7 @@
   <form class="modal-content animate" action="login.php" method="post" name="loginform">
   <button class="cross" onclick="document.getElementById('loginform').style.display='none'">&#10006;</button>
     <div class="img">
-    <img src="user.jpg" height="50px" width="50px">
+    <img src="../static/img/user.jpg" height="50px" width="50px">
     </div><br>
       <label>&nbsp;&nbsp;&nbsp;&nbsp;Username : </label>
       <input type="text" name="username" class="username" required><br><br>
@@ -30,7 +30,7 @@
 </div>
 <button class="register" onclick="document.getElementById('registerform').style.display='block'">REGISTER</button>
 <div id="registerform" class="modal">
-	<form class="modal-content-2 animate" name="registrationform" action="registration.php" method="post">
+	<form class="modal-content-2 animate" name="registrationform" action="/log" method="post">
 	<button class="cross" onclick="document.getElementById('registerform').style.display='none'">&#10006;</button>
 	<div class="img">
 	<img src="user.jpg" height="60px" width="60px">
