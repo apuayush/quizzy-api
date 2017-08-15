@@ -9,14 +9,6 @@ window.onclick = function(event) {
 
 //var usernameArray=new Array();
 
-function submitRegistration(){
-	var username=document.getElementById('username_register').value;
-	var password=document.getElementById('password_register').value;
-	var email=document.getElementById('email').value;
-	if(username.length>6 && password.length>6 && email.length!=0){
-
-	}
-}
 
 function checkPassword(){
 	var pass=document.getElementById("password_register").value;
@@ -63,4 +55,5 @@ function checkPassword(){
 	if(pass.length==0){
 		password_strength.innerHTML="";
 	}
-}	
+}
+

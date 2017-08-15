@@ -3,16 +3,18 @@
 <head>
 <link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../static/css/template.css" type="text/css">
-<script src="../static/js/template.js"></script>
+<link rel="stylesheet" href="../static/css/tools/animate.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../static/js/log.js"></script>
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
 <title>Template</title>
-</script>
 </head>
 <body>
-<h1> Add Custom Text Here...<span id="vertical">|</span></h1>
-<h3> Some introduction about the topic. Get something catchy for the users.</h3>
+<h1> Create Your Own Quiz...<span id="vertical">|</span></h1>
+<h3> Quizzy is an online portal for creating quizzes and distributing them.</h3>
 <button class="login" onclick="document.getElementById('loginform').style.display='block'">LOGIN</button>
 <div id="loginform" class="modal">
-  <form class="modal-content animate" action="login.php" method="post" name="loginform">
+  <form class="modal-content animate" method="post" name="login" id="login" action="/login">
   <button class="cross" onclick="document.getElementById('loginform').style.display='none'">&#10006;</button>
     <div class="img">
     <img src="../static/img/user.jpg" height="50px" width="50px">
@@ -23,17 +25,17 @@
       <label>&nbsp;&nbsp;&nbsp;&nbsp;Password &nbsp;:</label>
       <input type="password" name="password" class="password" required><br><br>
 
-      <input type="submit" class="submitlogin" value="LOGIN">&nbsp;&nbsp;&nbsp;
+      <input type="submit" class="submitlogin" value="LOGIN" id="submitlogin">&nbsp;&nbsp;&nbsp;
       <button type="reset" onclick="document.getElementById('loginform').style.display='none'" class="cancelbtn">CANCEL</button><br><br>
     </div>
   </form>
 </div>
 <button class="register" onclick="document.getElementById('registerform').style.display='block'">REGISTER</button>
 <div id="registerform" class="modal">
-	<form class="modal-content-2 animate" name="registrationform" action="/log" method="post">
+	<form class="modal-content-2 animate" name="signup" action="/signup" method="post">
 	<button class="cross" onclick="document.getElementById('registerform').style.display='none'">&#10006;</button>
 	<div class="img">
-	<img src="user.jpg" height="60px" width="60px">
+	<img src="../static/img/user.jpg" height="60px" width="60px">
 	</div><br>
 	<table cellspacing="5px" cellpadding="2px" style="text-align: center;">
 	<tr>
@@ -63,11 +65,12 @@
 		<span id="display_text" style="font-size:12px;color:red;"></span>
 	</form>
 	</div>
-	<div id="id02" class="modal" style="display: block;">
+	<div id="id02" class="modal" style="display: hidden;">
 	<div class="modal-content-2 animate">
-	<button class="cross" onclick="document.getElementById('id02').style.display='none'">&#10006;</button><br>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Successfully Registered<br><br><br>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="template.html"><button class="cancelbtn" onclick="document.getElementById('id02').style.display='none'">CANCEL</button></a>
+	<button class="cross" id="logged_in_false">&#10006;</button><br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<p>{{success}}</p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="cancelbtn" onclick="document.getElementById('id02').style.display='none'">CANCEL</button></a>
 	</div>
 	</div>
 </body>
