@@ -1,15 +1,15 @@
-from tornado.web import RequestHandler, UIModule, Application
+from tornado.web import RequestHandler, UIModule, Application, removeslash
 from tornado.gen import coroutine
 from tornado.httpserver import HTTPServer
 from tornado.ioloop import IOLoop
 # other libraries
 from motor import MotorClient as Client
 import os
+import env
 import random
 import string
 
-# db = Client(os.environ['DB_LINK'])
-print os.environ
+db = Client(env.DB_LINK)['quizzy']
 
 
 class User(object):
@@ -20,6 +20,7 @@ class User(object):
 
 class IndexHandler(RequestHandler, User):
     @coroutine
+    @removeslash
     def get(self):
         if self.get_secure_cookie('username') is None:
             User.is_logged_in = False
@@ -34,37 +35,50 @@ class IndexHandler(RequestHandler, User):
 # TODO- add cookie secret
 
 class Log(RequestHandler):
+    @coroutine
+    @removeslash
     def get(self):
         """
         right submission successful in case of signup or submission failed
         and login failed in case of login
         :return: None
         """
-        success = ""
         try:
-            success = self.get_query_argument('success')
+            msg = self.get_query_argument('success')
         except:
-            pass
-        self.render('log.html', success=success)
+            msg = "try"
+        print msg
+        self.render('log.html', success=msg)
 
 
 class LoginHandler(RequestHandler, User):
+    @removeslash
     @coroutine
     def post(self):
         username = self.get_argument('username')
         password = self.get_argument('password')
-        try:
-            account = yield db.accounts.find_one('username')
-            if account is None:
-                self.render('log.html', success="Check your Login Credentials")
-            else:
-                self.session = dict(username=username, password=self.password)
-                self.set_secure_cookie(self.session)
-                self.redirect('/node')
+        print password
+        # try:
+        user = yield db['accounts'].find_one({'username': username})
+        print user
+        if user is None:
+            self.redirect("/log?success=Not registered")
 
-        except:
-            pass
-        self.is_logged_in = True
+        elif user['password'] != password:
+            self.redirect('/log?success=Wrong Password')
+
+        else:
+            User.username = username
+            User.password = password
+            User.is_logged_in = True
+            self.set_secure_cookie('username', User.username)
+            self.set_secure_cookie('password', User.password)
+            self.redirect('/node')
+        # except:
+        #     self.write_error('You are living in dinosaur age')
+
+    def write_error(self, status_code, **kwargs):
+        self.write(str(status_code) + ' You are living in dinosaur age')
 
 
 class SignUpHandler(RequestHandler, User):
@@ -85,8 +99,7 @@ class CreateQuiz(RequestHandler, User):
 
 
 settings = dict(
-    db=db,
-    debug=True
+    db=db
 )
 
 app = Application(

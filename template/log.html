@@ -2,11 +2,12 @@
 <html>
 <head>
 <link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="../static/css/template.css" type="text/css">
-<link rel="stylesheet" href="../static/css/tools/animate.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../static/css/log.css" type="text/css">
+<!-- <link rel="stylesheet" href="../static/css/tools/animate.css"> -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 <script src="../static/js/log.js"></script>
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+
 <title>Template</title>
 </head>
 <body>
@@ -65,13 +66,18 @@
 		<span id="display_text" style="font-size:12px;color:red;"></span>
 	</form>
 	</div>
-	<div id="id02" class="modal" style="display: hidden;">
+	{% if success is not 'try' %}
+
+		<div id="id02" class="modal_extra" style="display: block;">
 	<div class="modal-content-2 animate">
-	<button class="cross" id="logged_in_false">&#10006;</button><br>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<p>{{success}}</p>
+	<button class="cross" onclick="document.getElementById('id02').style.display='none'">&#10006;</button><br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{success}}<br><br><br>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="cancelbtn" onclick="document.getElementById('id02').style.display='none'">CANCEL</button></a>
 	</div>
 	</div>
+		</div>
+
+	{% end %}
+	
 </body>
 </html>
