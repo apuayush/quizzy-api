@@ -7,7 +7,7 @@ from motor import MotorClient as Client
 import os
 import env
 import random
-import string
+import uuid, base64
 
 db = Client(env.DB_LINK)['quizzy']
 
@@ -99,7 +99,8 @@ class CreateQuiz(RequestHandler, User):
 
 
 settings = dict(
-    db=db
+    db=db,
+    cookie_secret=base64.b64encode(uuid.uuid4().bytes + uuid.uuid4().bytes)
 )
 
 app = Application(
@@ -112,7 +113,6 @@ app = Application(
         (r'/cquiz', CreateQuiz),  # Creating quiz portal
         (r'/tquiz', TakeQuiz)  # Take quiz portal
     ],
-    cookie_secret=random.choice(string.letters),
     template_path=os.path.join(os.path.dirname(__file__), "template"),
     static_path=os.path.join(os.path.dirname(__file__), "static"),
     **settings
