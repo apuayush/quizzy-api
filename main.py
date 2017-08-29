@@ -48,7 +48,7 @@ class Log(RequestHandler):
         except:
             msg = "try"
         print msg
-        self.render('log.html', success=msg)
+        self.render('log1.html', success=msg)
 
 
 class LoginHandler(RequestHandler, User):
@@ -57,14 +57,15 @@ class LoginHandler(RequestHandler, User):
     def post(self):
         username = self.get_argument('username')
         password = self.get_argument('password')
+        print username
         # try:
         user = yield db['accounts'].find_one({'username': username})
         print user
         if user is None:
-            self.redirect("/log?success=Not registered")
+            self.write("Not registered")
 
         elif user['password'] != password:
-            self.redirect('/log?success=Wrong Password')
+            self.write('Wrong Password')
 
         else:
             User.username = username

@@ -1,13 +1,30 @@
 $(document).ready(function(){
 		var loginbox = document.getElementById('loginform');
+		var username = $('#username').val();
+		console.log(username)
+		console.log('hi')
 
+		$('#loginbtn').click(function(){
+			var username = $('#username').val();
+			var password = $('#password').val();
+			var lgnbtn = $('#loginbtn');
+			lgnbtn.html('wait....')
 
-		// When the user clicks anywhere outside of the modal, close it
-		window.onclick = function(event) {
-		    if (event.target == loginbox) {
-		        loginbox.style.display = "none";
-		    }
-		}
+			$.ajax({
+				url : '/login',
+				data : {
+					'username':username,
+					'password':password
+				},
+				type : 'POST',
+
+				success : function(event){
+					$('#login-status').html(event)
+					lgnbtn.html('Sign In')
+				}
+			})
+
+		});
 
 		//var usernameArray=new Array();
 		function checkPassword(){
@@ -57,3 +74,4 @@ $(document).ready(function(){
 			}
 		}
 })
+
