@@ -57,7 +57,6 @@ class LoginHandler(RequestHandler, User):
     def post(self):
         username = self.get_argument('username')
         password = self.get_argument('password')
-        print password
         # try:
         user = yield db['accounts'].find_one({'username': username})
         print user
@@ -81,8 +80,44 @@ class LoginHandler(RequestHandler, User):
         self.write(str(status_code) + ' You are living in dinosaur age')
 
 
+
 class SignUpHandler(RequestHandler, User):
-    pass
+
+    @removeslash
+    @coroutine
+    def post(self):
+
+        fname = self.get_argument('fname')
+        lname = self.get_argument('lname')
+        username = self.get_argument('username')
+        password = self.get_argument('password')
+        email = self.get_argument('email')
+
+        Uaccount = yield db['accounts'].find_one({'username': username})
+        Eaccount = yield db['accounts'].find_one({'email': email})
+
+        if Uaccount:
+            self.redirect('/log?success=Username unavailable')
+
+        if Eaccount:
+            self.redirect('/log?success=email already registered')
+
+        try:
+            yield db['accounts'].insert_one({'fname': fname,
+                                       'lname': lname,
+                                       'username': username,
+                                       'password': password,
+                                       'email': email})
+            self.redirect('/log?success=successfully registered')
+
+        except:
+            self.redirect('/log?success=unsuccessful')
+
+
+
+
+
+
 
 
 class HomePage(RequestHandler, User):
@@ -100,7 +135,8 @@ class CreateQuiz(RequestHandler, User):
 
 settings = dict(
     db=db,
-    cookie_secret=base64.b64encode(uuid.uuid4().bytes + uuid.uuid4().bytes)
+    cookie_secret=base64.b64encode(uuid.uuid4().bytes + uuid.uuid4().bytes),
+    debug=True
 )
 
 app = Application(
