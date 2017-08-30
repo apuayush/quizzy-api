@@ -17,14 +17,56 @@ $(document).ready(function(){
 					'password':password
 				},
 				type : 'POST',
+				crossOrigin: true,
 
 				success : function(event){
-					$('#login-status').html(event)
+					event = JSON.parse(event);
+					$('#login-status').html(event['message'])
+					console.log('inside')
+					if(event['redirect'] != 'none'){
+						window.location = event['redirect']
+					}
 					lgnbtn.html('Sign In')
+				}
+			})
+		})
+
+
+		$('#signupbtn').click(function(){
+			var name = $('#s-name').val();
+			var username = $('#s-username').val();
+			var password = $('#s-password').val();
+			var rpassword = $('#s-r-password').val();
+			var signup_msg = $('#signup-msg');
+			if (password != rpassword) {
+				signup_msg.html("password doesn't match").style('font-color:red;')
+				return;
+			}
+			var email = $('#email').val();
+			var signupbtn = $('#signupbtn');
+			signupbtn.html('wait....')
+
+			$.ajax({
+				url : '/signup',
+				data : {
+					'name': name,
+					'username':username,
+					'password':password,
+					'email': email
+
+				},
+				type : 'POST',
+
+				success : function(event){
+					event = JSON.parse(event);
+					$('#login-status').html(event['message'])
+					console.log('s-inside')
+					signupbtn.html('Sign In')
 				}
 			})
 
 		});
+	});
 
 		//var usernameArray=new Array();
 		function checkPassword(){
@@ -73,5 +115,4 @@ $(document).ready(function(){
 				password_strength.innerHTML="";
 			}
 		}
-})
 

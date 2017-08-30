@@ -6,6 +6,7 @@ from tornado.ioloop import IOLoop
 from motor import MotorClient as Client
 import os
 import env
+import json
 import random
 import uuid, base64
 
@@ -43,12 +44,7 @@ class Log(RequestHandler):
         and login failed in case of login
         :return: None
         """
-        try:
-            msg = self.get_query_argument('success')
-        except:
-            msg = "try"
-        print msg
-        self.render('log1.html', success=msg)
+        self.render('log1.html')
 
 
 class LoginHandler(RequestHandler, User):
@@ -61,11 +57,11 @@ class LoginHandler(RequestHandler, User):
         # try:
         user = yield db['accounts'].find_one({'username': username})
         print user
+        redirect = 'none'
         if user is None:
-            self.write("Not registered")
-
+            message = "Not registered"
         elif user['password'] != password:
-            self.write('Wrong Password')
+            message = 'Wrong Password'
 
         else:
             User.username = username
@@ -73,9 +69,17 @@ class LoginHandler(RequestHandler, User):
             User.is_logged_in = True
             self.set_secure_cookie('username', User.username)
             self.set_secure_cookie('password', User.password)
-            self.redirect('/node')
-        # except:
-        #     self.write_error('You are living in dinosaur age')
+            message = "loading..."
+            redirect = '/node'
+
+        self.write(json.dumps({
+            'status': 200,
+            'message': message,
+            'redirect': redirect
+        }))
+
+
+
 
     def write_error(self, status_code, **kwargs):
         self.write(str(status_code) + ' You are living in dinosaur age')
@@ -88,42 +92,47 @@ class SignUpHandler(RequestHandler, User):
     @coroutine
     def post(self):
 
-        fname = self.get_argument('fname')
-        lname = self.get_argument('lname')
-        username = self.get_argument('username')
+        name = self.get_argument('name').lower().strip()
+        username = self.get_argument('username').strip()
         password = self.get_argument('password')
         email = self.get_argument('email')
 
         Uaccount = yield db['accounts'].find_one({'username': username})
         Eaccount = yield db['accounts'].find_one({'email': email})
-
+        message = 'unsuccessful'
         if Uaccount:
-            self.redirect('/log?success=Username unavailable')
+            message = 'Username unavailable'
 
         if Eaccount:
-            self.redirect('/log?success=email already registered')
+            message = 'email already registered'
 
         try:
-            yield db['accounts'].insert_one({'fname': fname,
-                                       'lname': lname,
+            yield db['accounts'].insert_one({'name': name,
                                        'username': username,
                                        'password': password,
                                        'email': email})
-            self.redirect('/log?success=successfully registered')
+            message = 'successfully registered'
 
         except:
-            self.redirect('/log?success=unsuccessful')
+            pass
+
+        self.write(json.dumps({
+            'status': 200,
+            'message': message
+        }))
+
+    def write_error(self, status_code, **kwargs):
+        self.write(str(status_code) + ' ERROR..')
 
 
 
-
-
+# TODO - signup post shows argument missing
 
 
 
 class HomePage(RequestHandler, User):
     def get(self):
-        self.write(User.username)
+        self.render('home.html')
 
 
 class TakeQuiz(RequestHandler, User):
