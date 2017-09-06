@@ -1,0 +1,149 @@
+.linegraph-container{
+	position: absolute;
+	top:645px;
+	left:10px;
+	height:350px;
+	width:1345px;
+}
+
+.stats-content{
+	position: absolute;
+	left:70px;
+	top:440px;
+	height:200px;
+	width:800px;
+	font-size: 22px;
+}
+
+.stats-content-main{
+	padding: 0 20px;
+}
+
+
+
+#chartContainer{
+	height: 325px;
+	width:100%;
+}
+
+.stats-content-options{
+	position: absolute;
+	top:35px;
+	left:30px;
+	width:1400px;
+	height:300px;
+}
+
+.stats-box-1{
+	position: relative;
+	left:0;
+	display: inline-block;
+	height:290px;
+	width:310px;
+	border: 0;
+	top:0px;
+	border-radius: 2px;
+	background: #E74C3C;
+}
+
+.individual-stats{
+	position: relative;
+	top:52px;
+	left:35px;
+	font-size: 40px;
+	color:white;
+	font-weight: bolder;
+}
+
+
+.stats-box-2{
+	top:57px;
+	display: inline-block;
+	position: relative;
+	left:5px;
+	height: 290px;
+	width:310px;
+	background: #85C1E9;
+	border:0;
+	border-radius: 2px;
+}
+
+.stats-box-3{
+	display: inline-block;
+	position: relative;
+	left:10px;
+	top:1px;
+	height: 290px;
+	width: 310px;
+	background: #52BE80;
+	border: 0;
+	border-radius: 2px;
+}
+
+.comment-section{
+	display: inline-block;
+	position: relative;
+	top:64px;
+	left:15px;
+	height:290px;
+	width:330px;
+	background: #F4D03F;
+	border: 0;
+	border-radius: 2px;
+}
+
+
+.message{
+	position: relative;
+	height: 150px;
+	top:70px;
+	width:280px;
+	left:22px;
+	background: #F9E79F;
+	border-radius: 5px;
+}
+
+.message-content{
+	position: relative;
+	top:40px;
+	left:20px;
+	font-size: 20px;
+
+}
+
+.message-sender{
+	position: relative;
+	top:85px;
+	left:50px;
+	font-size:15px;
+	font-weight: bold;
+}
+/*.stats-box-1:hover{
+	-moz-box-shadow: 1px 2px 4px rgba(0, 0, 0,0.5);
+	-webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+	cursor:pointer;
+	transition: 0.5s ease;
+	height:300px;
+	width:320px;
+}
+
+.stats-box-2:hover{
+	-webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+	-webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+	cursor:pointer;
+	transition: 0.5s ease;
+	height:300px;
+	width:320px;
+}
+
+.stats-box-3:hover{
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+	-webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+	cursor:pointer;
+	transition: 0.5s ease;
+	height:300px;
+	width:320px;
+}*/
