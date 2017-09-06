@@ -1,0 +1,239 @@
+body{
+	background-color:#4B0082;
+	color: white;
+  	transition: background 1s ease;
+	font-family: 'Raleway', sans-serif;
+	max-width: 100%;
+    overflow-x: hidden;
+}
+
+h1{
+	position: absolute;
+	top:270px;
+	left:480px;
+	white-space: nowrap;
+  	overflow: hidden;
+  	width: 30em;
+  	animation: type 4s steps(60, end); 
+}
+
+h3{
+	position: absolute;
+	top:330px;
+	left:350px;
+	font-weight: inherit;
+}
+
+.login{
+	position:relative;
+	text-align: center;
+	font-size: 21px;
+	top:390px;
+	left:480px;
+	height: 55px;
+	width : 150px;
+	border:3px white solid;
+	border-radius: 10px;
+	background-color:#4B0082; 
+	color: white;
+	font-family: 'Raleway', sans-serif;
+	
+}
+
+.login:hover {
+	opacity: 0.7;
+}
+
+.register{
+	position:relative;
+	text-align: center;
+	font-size: 21px;
+	top : 390px;
+	left: 500px;
+	height:55px;
+	width:150px;
+	border:3px white solid;
+	border-radius: 10px;
+	background-color:#4B0082; 
+	color: white;
+	font-family: 'Raleway', sans-serif;
+}
+
+.register:hover {
+	opacity: 0.7;
+}
+
+h1:nth-child(2){
+  animation: type2 8s steps(60, end);
+}
+
+#vertical{
+  animation: blink 1s infinite;
+}
+
+@keyframes type{ 
+  from { width: 0; } 
+} 
+
+@keyframes type2{
+  0%{width: 0;}
+  50%{width: 0;}
+  100%{ width: 100; } 
+} 
+
+@keyframes blink{
+  to{opacity: .0;}
+}
+
+/* The Modal (background) */
+
+
+
+.modal {
+  /* Hidden by default */
+  	display: none;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 294px;
+    top: -50px;
+    /*padding-top: 60px;*/
+}
+.modal_extra{
+	/*default */
+	display: block;
+    position: fixed; /* Stay in place */
+    z-index: 3; /* Sit on top */
+    left: 294px;
+    top: -50px;
+}
+.cross{
+	position: relative;
+	right:-290px;
+	top:-10px;
+	font-size:22px;
+	height:40px;
+	width:40px;
+	border:0;
+	background-color: rgba(0,0,0,0);
+}
+
+
+.cross:hover{
+	cursor: pointer;
+}
+/* Modal Content/Box */
+.modal-content {
+	position: relative;
+	top:200px;
+	left:185px;
+    background-color: #fefefe;
+    margin: 5px auto; /* 15% from the top and centered */
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: rgba(255,255,255,0.9);
+    color:black;
+	border-radius: 5px;
+	width: 320px;
+	padding: 12px;
+    /*width: 80%; Could be more or less, depending on screen size */
+}
+
+.modal-content-2 {
+	position: relative;
+	top:200px;
+	left:184px;
+    background-color: #fefefe;
+    margin: 5px auto; /* 15% from the top and centered */
+    border: 1px solid #888;
+    border-radius: 5px;
+    background-color: rgba(255,255,255,0.9);
+    color:black;
+	border-radius: 5px;
+	width: 320px;
+	padding: 9px;
+    /*width: 80%; Could be more or less, depending on screen size */
+}
+
+.username {
+	height:25px;
+	width:180px;
+}
+
+.password {
+	height:25px;
+	width:180px;
+}
+
+.submitlogin {
+	position: relative;
+	left: 40px;
+	height: 40px;
+	width: 100px;
+	background-color: #148F77;
+	border:0;
+	border-radius: 3px;
+	cursor: pointer;
+	color:white;
+	font-family: Tahoma;
+}
+
+.submitlogin:hover{
+	background-color: #1ABC9C;
+}
+
+.cancelbtn {
+	position: relative;
+	left: 40px;
+	height: 40px;
+	width: 100px;
+	background-color:#CB4335;
+	border:0;
+	border-radius: 3px;
+	cursor: pointer;
+	color: white;
+	font-family: Tahoma;
+}
+
+.cancelbtn:hover{
+	background-color: #E74C3C;
+}
+
+.img{
+	position: relative;
+	left:120px;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+#password_strength{
+	position:relative;
+	top:5px;
+	left:-70px;
+}
+
+
+.modal1 {
+    display: block; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 294px;
+    top: -50px;
+    height: 100px;
+    width:200px;
+    /*padding-top: 60px;*/
+}
+
