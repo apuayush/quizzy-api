@@ -53,10 +53,10 @@ class LoginHandler(RequestHandler, User):
     def post(self):
         username = self.get_argument('username')
         password = self.get_argument('password')
-        print username
+        print(username)
         # try:
         user = yield db['accounts'].find_one({'username': username})
-        print user
+        print(user)
         redirect = 'none'
         if user is None:
             message = "Not registered"
