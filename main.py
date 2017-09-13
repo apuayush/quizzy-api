@@ -11,6 +11,7 @@ import uuid
 import base64
 
 db = Client(env.DB_LINK)['quizzy']
+c_question_count = 0
 
 
 class User(object):
@@ -21,6 +22,12 @@ class User(object):
 
 class NoConnectionException(Exception):
     pass
+
+
+class QuestionsModule(UIModule):
+    def render(self, *args, **kwargs):
+        print(args)
+        self.render_string('questions.html')
 
 
 class IndexHandler(RequestHandler, User):
@@ -131,9 +138,6 @@ class SignUpHandler(RequestHandler, User):
         self.write(str(status_code) + ' ERROR..')
 
 
-# TODO - signup post shows argument missing
-
-
 class HomePage(RequestHandler, User):
     def data_received(self, chunk):
         pass
@@ -183,6 +187,7 @@ app = Application(
     ],
     template_path=os.path.join(os.path.dirname(__file__), "template"),
     static_path=os.path.join(os.path.dirname(__file__), "static"),
+    ui_modules=dict(questions_module=QuestionsModule),
     **settings
 )
 

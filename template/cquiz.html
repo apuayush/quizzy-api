@@ -6,13 +6,22 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Quizzy</title>
-    <script type="text/javascript" src="../static/js/cquiz.js"></script>
+    <script type="text/javascript">
+        function setQuestionModule() {
+            var noQues = document.getElementById('noOfQuestion');
+            for(var i=1;i<=noQues;i++){
+
+            }
+
+        }
+    </script>
 </head>
 <body>
 <h1>Hello Here U can create a quiz</h1>
-<p><input type="number" name="noOfQuestion" id="noOfQuestion"/></p>
-
-
+<p><input type="number" name="noOfQuestion" id="noOfQuestion" onchange="setQuestionModule();"/></p>
+<div id="quesSet">
+</div>
+<!--Todo - add websocket to communicate with no of ques and uimodule-->
 
 </body>
 </html>
