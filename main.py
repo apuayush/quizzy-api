@@ -7,8 +7,8 @@ from motor import MotorClient as Client
 import os
 import env
 import json
-import random
-import uuid, base64
+import uuid
+import base64
 
 db = Client(env.DB_LINK)['quizzy']
 
@@ -19,7 +19,14 @@ class User(object):
     is_logged_in = False
 
 
+class NoConnectionException(Exception):
+    pass
+
+
 class IndexHandler(RequestHandler, User):
+    def data_received(self, chunk):
+        pass
+
     @coroutine
     @removeslash
     def get(self):
@@ -36,6 +43,9 @@ class IndexHandler(RequestHandler, User):
 # TODO- add cookie secret
 
 class Log(RequestHandler):
+    def data_received(self, chunk):
+        pass
+
     @coroutine
     @removeslash
     def get(self):
@@ -48,13 +58,15 @@ class Log(RequestHandler):
 
 
 class LoginHandler(RequestHandler, User):
+    def data_received(self, chunk):
+        pass
+
     @removeslash
     @coroutine
     def post(self):
         username = self.get_argument('username')
         password = self.get_argument('password')
         print(username)
-        # try:
         user = yield db['accounts'].find_one({'username': username})
         print(user)
         redirect = 'none'
@@ -78,15 +90,13 @@ class LoginHandler(RequestHandler, User):
             'redirect': redirect
         }))
 
-
-
-
     def write_error(self, status_code, **kwargs):
         self.write(str(status_code) + ' You are living in dinosaur age')
 
 
-
 class SignUpHandler(RequestHandler, User):
+    def data_received(self, chunk):
+        pass
 
     @removeslash
     @coroutine
@@ -97,50 +107,61 @@ class SignUpHandler(RequestHandler, User):
         password = self.get_argument('password')
         email = self.get_argument('email')
 
-        Uaccount = yield db['accounts'].find_one({'username': username})
-        Eaccount = yield db['accounts'].find_one({'email': email})
+        u_account = yield db['accounts'].find_one({'username': username})
+        e_account = yield db['accounts'].find_one({'email': email})
         message = 'unsuccessful'
-        if Uaccount:
+        if u_account:
             message = 'Username unavailable'
 
-        if Eaccount:
+        if e_account:
             message = 'email already registered'
 
         try:
-            yield db['accounts'].insert_one({'name': name,
-                                       'username': username,
-                                       'password': password,
-                                       'email': email})
+            yield db['accounts'].insert_one({'name': name, 'username': username, 'password': password, 'email': email})
             message = 'successfully registered'
-
-        except:
-            pass
+        except NoConnectionException:
+            self.write_error(400)
 
         self.write(json.dumps({
             'status': 200,
             'message': message
         }))
 
-    def write_error(self, status_code, **kwargs):
+    def write_error(self, status_code):
         self.write(str(status_code) + ' ERROR..')
-
 
 
 # TODO - signup post shows argument missing
 
 
-
 class HomePage(RequestHandler, User):
+    def data_received(self, chunk):
+        pass
+
     def get(self):
         self.render('home.html')
 
 
+class LogoutHandler(RequestHandler):
+    def data_received(self, chunk):
+        pass
+
+    def get(self):
+        self.clear_all_cookies()
+        self.redirect('/')
+
+
 class TakeQuiz(RequestHandler, User):
-    pass
+    def data_received(self, chunk):
+        pass
 
 
 class CreateQuiz(RequestHandler, User):
-    pass
+    def data_received(self, chunk):
+        pass
+
+    def get(self):
+        self.render('cquiz.html')
 
 
 settings = dict(
@@ -153,6 +174,7 @@ app = Application(
     handlers=[
         (r'/', IndexHandler),  # controls index if logged in then /node else /log
         (r'/log', Log),
+        (r'/logout', LogoutHandler),
         (r'/login', LoginHandler),  # Login if clicks login
         (r'/signup', SignUpHandler),
         (r'/node', HomePage),  # Home page
