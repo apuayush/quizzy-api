@@ -27,13 +27,11 @@ class NoConnectionException(Exception):
 class QuestionsModule(UIModule):
     def render(self, *args, **kwargs):
         print(args)
-        self.render_string('questions.html')
+        return self.render_string('questions.html')
 
 
+# pylint: disable=abstract-method
 class IndexHandler(RequestHandler, User):
-    def data_received(self, chunk):
-        pass
-
     @coroutine
     @removeslash
     def get(self):
@@ -50,9 +48,6 @@ class IndexHandler(RequestHandler, User):
 # TODO- add cookie secret
 
 class Log(RequestHandler):
-    def data_received(self, chunk):
-        pass
-
     @coroutine
     @removeslash
     def get(self):
@@ -167,6 +162,10 @@ class CreateQuiz(RequestHandler, User):
     def get(self):
         self.render('cquiz.html')
 
+    def post(self):
+        pass
+# TODO - give a different id to all quiz.. and save them on database of all available and a link to the author's id
+
 
 settings = dict(
     db=db,
@@ -178,16 +177,16 @@ app = Application(
     handlers=[
         (r'/', IndexHandler),  # controls index if logged in then /node else /log
         (r'/log', Log),
-        (r'/logout', LogoutHandler),
-        (r'/login', LoginHandler),  # Login if clicks login
-        (r'/signup', SignUpHandler),
-        (r'/node', HomePage),  # Home page
-        (r'/cquiz', CreateQuiz),  # Creating quiz portal
-        (r'/tquiz', TakeQuiz)  # Take quiz portal
+        (r'/logout/$', LogoutHandler),
+        (r'/login/$', LoginHandler),  # Login if clicks login
+        (r'/signup/$', SignUpHandler),
+        (r'/node/$', HomePage),  # Home page
+        (r'/cquiz/$', CreateQuiz),  # Creating quiz portal
+        (r'/tquiz/$', TakeQuiz)  # Take quiz portal
     ],
     template_path=os.path.join(os.path.dirname(__file__), "template"),
     static_path=os.path.join(os.path.dirname(__file__), "static"),
-    ui_modules=dict(questions_module=QuestionsModule),
+    ui_modules={'questions_module': QuestionsModule},
     **settings
 )
 

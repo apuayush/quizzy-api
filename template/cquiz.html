@@ -6,11 +6,19 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Quizzy</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
         function setQuestionModule() {
-            var noQues = document.getElementById('noOfQuestion');
-            for(var i=1;i<=noQues;i++){
-
+            var noQues = $("#noOfQuestion").val()
+            console.log(noQues)
+            var ques_temp = $('#ques_module')
+            var ques_set = $('#quesSet')
+            ques_set.empty()
+            console.log(ques_temp)
+            for(var i=1;i<noQues;i++) {
+                var clone = ques_temp.clone()
+                console.log(clone)
+                $(ques_set).append(clone)
             }
 
         }
@@ -19,8 +27,15 @@
 <body>
 <h1>Hello Here U can create a quiz</h1>
 <p><input type="number" name="noOfQuestion" id="noOfQuestion" onchange="setQuestionModule();"/></p>
-<div id="quesSet">
+<div id="ques_module">
+    {% module questions_module() %}
 </div>
+
+<form>
+<div id="quesSet" >
+</div>
+    <input type="submit" formaction="/cquiz" formmethod="POST" value="Generate Quiz" >
+</form>
 <!--Todo - add websocket to communicate with no of ques and uimodule-->
 
 </body>
