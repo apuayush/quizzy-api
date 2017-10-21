@@ -45,7 +45,7 @@ $(document).ready(function() {
             return;
         }
         var email = $('#email').val();
-        if (checkEmail(email)) {
+        if (!checkEmail(email)) {
             signup_msg.html("email is incorrect").style('font-color:red;')
             return;
         }
