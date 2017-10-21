@@ -29,7 +29,7 @@ $(document).ready(function(){
 					lgnbtn.html('Sign In')
 				}
 			})
-		})
+		});
 
 
 		$('#signupbtn').click(function(){

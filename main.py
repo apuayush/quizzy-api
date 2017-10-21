@@ -122,8 +122,8 @@ class SignUpHandler(RequestHandler, User):
             'message': message
         }))
 
-    def write_error(self, status_code):
-        self.write(str(status_code) + ' ERROR..')
+    # def write_error(self, status_code):
+    #     self.write(str(status_code) + ' ERROR..')
 
 
 class HomePage(RequestHandler, User):
