@@ -1,4 +1,4 @@
-from tornado.web import RequestHandler, UIModule, Application, removeslash
+from tornado.web import RequestHandler, UIModule, Application, removeslash, authenticated
 from tornado.gen import coroutine
 from tornado.httpserver import HTTPServer
 from tornado.ioloop import IOLoop
@@ -9,9 +9,11 @@ import env
 import json
 import uuid
 import base64
+import bcrypt
 
 db = Client(env.DB_LINK)['quizzy']
 c_question_count = 0
+
 
 class User(object):
     username = ""
@@ -31,22 +33,13 @@ class QuestionsModule(UIModule):
 
 # pylint: disable=abstract-method
 class IndexHandler(RequestHandler, User):
-    @coroutine
-    @removeslash
-    def get(self):
-        if self.get_secure_cookie('username') is None:
-            User.is_logged_in = False
-            self.redirect('/log')
-        else:
-            User.username = self.get_secure_cookie('username')
-            User.password = self.get_secure_cookie('password')
-            User.is_logged_in = True
-            self.redirect('/node')
+    def get_current_user(self):
+        return self.get_secure_cookie('username')
 
 
 # TODO- add cookie secret
 
-class Log(RequestHandler):
+class Log(IndexHandler):
     @coroutine
     @removeslash
     def get(self):
@@ -58,20 +51,20 @@ class Log(RequestHandler):
         self.render('log1.html')
 
 
-class LoginHandler(RequestHandler, User):
+class LoginHandler(IndexHandler):
     @removeslash
     @coroutine
     def post(self):
         username = self.get_argument('username')
         password = self.get_argument('password')
-        print(username)
+        # password = base64.urlsafe_b64encode(t_sha.digest())
         user = yield db['accounts'].find_one({'username': username})
-        print(user)
         redirect = 'none'
         if user is None:
             message = "Not registered"
-        elif user['password'] != password:
+        elif bcrypt.hashpw(password.encode('utf-8'), user['password']) != user['password']:
             message = 'Wrong Password'
+            print(user['password'])
 
         else:
             User.username = username
@@ -80,7 +73,7 @@ class LoginHandler(RequestHandler, User):
             self.set_secure_cookie('username', User.username)
             self.set_secure_cookie('password', User.password)
             message = "loading..."
-            redirect = '/node'
+            redirect = '/'
 
         self.write(json.dumps({
             'status': 200,
@@ -92,7 +85,7 @@ class LoginHandler(RequestHandler, User):
         self.write(str(status_code) + ' You are living in dinosaur age')
 
 
-class SignUpHandler(RequestHandler, User):
+class SignUpHandler(IndexHandler):
     @removeslash
     @coroutine
     def post(self):
@@ -102,20 +95,28 @@ class SignUpHandler(RequestHandler, User):
         password = self.get_argument('password')
         email = self.get_argument('email')
 
+        # hashing
+        # salt = base64.urlsafe_b64encode(uuid.uuid4().bytes)
+        # t_sha = hashlib.sha512()
+        # t_sha.update(password.encode('utf-8') + salt)
+        # password = base64.urlsafe_b64encode(t_sha.digest())
+        password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+
         u_account = yield db['accounts'].find_one({'username': username})
         e_account = yield db['accounts'].find_one({'email': email})
         message = 'unsuccessful'
         if u_account:
             message = 'Username unavailable'
 
-        if e_account:
+        elif e_account:
             message = 'email already registered'
 
-        try:
-            yield db['accounts'].insert_one({'name': name, 'username': username, 'password': password, 'email': email})
-            message = 'successfully registered'
-        except NoConnectionException:
-            self.write_error(400)
+        else:
+            try:
+                yield db['accounts'].insert_one({'name': name, 'username': username, 'password': password, 'email': email})
+                message = 'successfully registered'
+            except NoConnectionException:
+                self.write_error(400)
 
         self.write(json.dumps({
             'status': 200,
@@ -126,23 +127,27 @@ class SignUpHandler(RequestHandler, User):
     #     self.write(str(status_code) + ' ERROR..')
 
 
-class HomePage(RequestHandler, User):
+class HomePage(IndexHandler):
+    @authenticated
     def get(self):
+        user = self.current_user
+        print(user)
         self.render('home.html')
 
 
-class LogoutHandler(RequestHandler):
+class LogoutHandler(IndexHandler):
     def get(self):
         self.clear_all_cookies()
         self.redirect('/')
 
 
-class TakeQuiz(RequestHandler, User):
+class TakeQuiz(IndexHandler):
     def data_received(self, chunk):
         pass
 
 
-class CreateQuiz(RequestHandler, User):
+class CreateQuiz(IndexHandler):
+    @authenticated
     def get(self):
         self.render('cquiz.html')
 
@@ -154,17 +159,18 @@ class CreateQuiz(RequestHandler, User):
 settings = dict(
     db=db,
     cookie_secret=base64.b64encode(uuid.uuid4().bytes + uuid.uuid4().bytes),
-    debug=True
+    debug=True,
+    login_url="/log"
 )
 
 app = Application(
     handlers=[
-        (r'/', IndexHandler),  # controls index if logged in then /node else /log
+        # (r'/', IndexHandler),  # controls index if logged in then /node else /log
         (r'/log', Log),
         (r'/logout', LogoutHandler),
         (r'/login', LoginHandler),  # Login if clicks login
         (r'/signup', SignUpHandler),
-        (r'/node', HomePage),  # Home page
+        (r'/', HomePage),  # Home page
         (r'/cquiz', CreateQuiz),  # Creating quiz portal
         (r'/tquiz', TakeQuiz)  # Take quiz portal
     ],
@@ -176,5 +182,5 @@ app = Application(
 
 if __name__ == "__main__":
     server = HTTPServer(app)
-    server.listen(8080)
+    server.listen(8000)
     IOLoop.current().start()
