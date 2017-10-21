@@ -13,7 +13,6 @@ import base64
 db = Client(env.DB_LINK)['quizzy']
 c_question_count = 0
 
-
 class User(object):
     username = ""
     password = ""
@@ -60,9 +59,6 @@ class Log(RequestHandler):
 
 
 class LoginHandler(RequestHandler, User):
-    def data_received(self, chunk):
-        pass
-
     @removeslash
     @coroutine
     def post(self):
@@ -97,9 +93,6 @@ class LoginHandler(RequestHandler, User):
 
 
 class SignUpHandler(RequestHandler, User):
-    def data_received(self, chunk):
-        pass
-
     @removeslash
     @coroutine
     def post(self):
@@ -134,17 +127,11 @@ class SignUpHandler(RequestHandler, User):
 
 
 class HomePage(RequestHandler, User):
-    def data_received(self, chunk):
-        pass
-
     def get(self):
         self.render('home.html')
 
 
 class LogoutHandler(RequestHandler):
-    def data_received(self, chunk):
-        pass
-
     def get(self):
         self.clear_all_cookies()
         self.redirect('/')
@@ -156,9 +143,6 @@ class TakeQuiz(RequestHandler, User):
 
 
 class CreateQuiz(RequestHandler, User):
-    def data_received(self, chunk):
-        pass
-
     def get(self):
         self.render('cquiz.html')
 
@@ -177,12 +161,12 @@ app = Application(
     handlers=[
         (r'/', IndexHandler),  # controls index if logged in then /node else /log
         (r'/log', Log),
-        (r'/logout/$', LogoutHandler),
-        (r'/login/$', LoginHandler),  # Login if clicks login
-        (r'/signup/$', SignUpHandler),
-        (r'/node/$', HomePage),  # Home page
-        (r'/cquiz/$', CreateQuiz),  # Creating quiz portal
-        (r'/tquiz/$', TakeQuiz)  # Take quiz portal
+        (r'/logout', LogoutHandler),
+        (r'/login', LoginHandler),  # Login if clicks login
+        (r'/signup', SignUpHandler),
+        (r'/node', HomePage),  # Home page
+        (r'/cquiz', CreateQuiz),  # Creating quiz portal
+        (r'/tquiz', TakeQuiz)  # Take quiz portal
     ],
     template_path=os.path.join(os.path.dirname(__file__), "template"),
     static_path=os.path.join(os.path.dirname(__file__), "static"),
