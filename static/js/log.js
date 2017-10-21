@@ -59,7 +59,7 @@ $(document).ready(function(){
 
 				success : function(event){
 					event = JSON.parse(event);
-					$('#login-status').html(event['message'])
+					signup_msg.html(event['message'])
 					console.log('s-inside')
 					signupbtn.html('Sign In')
 				}
