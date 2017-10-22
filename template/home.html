@@ -5,13 +5,14 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../static/css/home.css">
     <title>Quizzy</title>
 </head>
 <body>
-<form>
-    <input type="submit" value="logout" formaction="/logout">
-    <input type="submit" value="take a quiz" formaction="/tquiz">
-    <input type="submit" value="create a quiz" formaction="/cquiz">
+<form class="form">
+    <input type="submit" value="take a quiz" formaction="/tquiz" class="btn-tquiz">
+    <input type="submit" value="create a quiz" formaction="/cquiz" class="btn-cquiz">
+    <input type="submit" value="logout" formaction="/logout" class="btn-logout">
 </form>
 
 </body>
