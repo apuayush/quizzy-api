@@ -1,29 +1,19 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport"
-		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<!-- Required meta tags -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-  </head>
-	<title>Quizzy</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../static/css/home.css">
+    <title>Quizzy</title>
 </head>
-<body class="bg-dark">
-	<div class="container">
-		<div class="bg-light rounded my-5 mx-auto p-4">
-			<h1 class="text-center">
-				Quizzy
-			</h1>
-			<form>
-				<input type="submit" class="btn btn-block btn-dark" value="Logout" formaction="/logout">
-				<input type="submit" class="btn btn-block btn-default" value="Take a quiz" formaction="/tquiz">
-				<input type="submit" class="btn btn-block btn-default" value="Create a quiz" formaction="/cquiz">
-			</form>
-		</div>
-	</div>
+<body>
+<form class="form">
+    <input type="submit" value="take a quiz" formaction="/tquiz" class="btn-tquiz">
+    <input type="submit" value="create a quiz" formaction="/cquiz" class="btn-cquiz">
+    <input type="submit" value="logout" formaction="/logout" class="btn-logout">
+</form>
+
 </body>
 </html>
