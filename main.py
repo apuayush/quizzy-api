@@ -64,7 +64,6 @@ class LoginHandler(IndexHandler):
             message = "Not registered"
         elif bcrypt.hashpw(password.encode('utf-8'), user['password']) != user['password']:
             message = 'Wrong Password'
-            print(user['password'])
 
         else:
             User.username = username
@@ -149,10 +148,13 @@ class TakeQuiz(IndexHandler):
 class CreateQuiz(IndexHandler):
     @authenticated
     def get(self):
-        self.render('cquiz.html')
+        self.render('cquiz.html', user=self.current_user)
 
     def post(self):
-        pass
+        user = self.current_user
+        question_set = self.get_argument('question')
+        time_limit = self.get_argument('time-limit')
+        start_time_utf = self.get_argument('')
 # TODO - give a different id to all quiz.. and save them on database of all available and a link to the author's id
 
 
@@ -182,5 +184,5 @@ app = Application(
 
 if __name__ == "__main__":
     server = HTTPServer(app)
-    server.listen(8000)
+    server.listen(8080)
     IOLoop.current().start()

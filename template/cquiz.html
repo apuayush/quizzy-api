@@ -23,8 +23,10 @@
 
         }
     </script>
+    <script type="text/javascript" src="../static/js/cquiz.js"></script>
 </head>
 <body>
+<h1>Hi!!!  {{user}}</h1>
 <h1>Hello Here U can create a quiz</h1>
 <p><input type="number" name="noOfQuestion" id="noOfQuestion" onchange="setQuestionModule();"/></p>
 <div id="ques_module">
@@ -34,9 +36,20 @@
 <form>
 <div id="quesSet" >
 </div>
-    <input type="submit" formaction="/cquiz" formmethod="POST" value="Generate Quiz" >
+    <input type="button" id="generate" >
 </form>
 <!--Todo - add websocket to communicate with no of ques and uimodule-->
 
 </body>
 </html>
+<!--
+1- send an ajax request to route /cquiz POST
+2 - format = a list of dictionary
+3 - {
+        "quiz-title": "User decides"
+        "question_set":[{"question":"blahblah", "options":['opt1','opt2','opt3','opt4'],"answer":"opt4"},[...],...],
+        "time-limit": "15(in seconds)",
+        "start-time":in utf format,
+        "end-time":in utf format
+    }
+-->
