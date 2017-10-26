@@ -31,13 +31,14 @@
 
 <p><span style="color:white;">start time</span> <input type="datetime-local" name="start-time" id="start-time" /></p>
 <p><span style="color:white;">time-limit (in minutes)</span> <input type="number" name="time-limit" id="time-limit" /></p>
-
+<p><span style="color:white;">No of ques</span> <input type="number" name="noOfQuestion" id="noOfQuestion" onchange="setQuestionModule();"/></p>
 <div id="quesSet" >
 <div id="ques_module">
     {% module questions_module() %}
 </div>
 </div>
     <input type="button" id="generate" >
+<div id="#message"></div>
 
 <!--Todo - add websocket to communicate with no of ques and uimodule-->
 

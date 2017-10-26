@@ -10,6 +10,8 @@ import json
 import uuid
 import base64
 import bcrypt
+import datetime
+import pytz
 
 db = Client(env.DB_LINK)['quizzy']
 c_question_count = 0
@@ -145,15 +147,56 @@ class TakeQuiz(IndexHandler):
 
 
 class CreateQuiz(IndexHandler):
+    access_code = 1000
     @authenticated
     def get(self):
         self.render('cquiz.html', user=self.current_user)
 
+    @coroutine
+    @removeslash
+    @authenticated
     def post(self):
         user = self.current_user
-        question_set = self.get_argument('question')
+        quiz_title = self.get_argument('quiz_title')
+        question_set = json.loads(self.get_argument('question'))
         time_limit = self.get_argument('time-limit')
-        start_time_utf = self.get_argument('')
+        start_time = self.get_argument('start-time')
+
+        # utility function
+        access_order = CreateQuiz.generate_access()
+        start_time = CreateQuiz.time_in_utc(start_time)
+        print(start_time)
+
+        # a detailed database list
+        db['quiz'].insert({
+            'quiz_title': quiz_title,
+            'access_token': access_order,
+            'author': user,
+            'time-limit': time_limit,
+            'start-time': start_time,
+            'question_set': question_set
+        })
+
+        self.write(json.dumps({
+            'status': 200,
+            'message': 'message'
+        }))
+
+    @staticmethod
+    def generate_access():
+        CreateQuiz.access_code += 1
+        return CreateQuiz.access_code
+
+    @staticmethod
+    def time_in_utc(time):
+        # need location to decide ones
+        local = pytz.timezone("America/Los_Angeles")
+        naive = datetime.datetime.strptime(time, "%Y-%m-%dT%H:%M")
+        local_dt = local.localize(naive, is_dst=None)
+        utc_dt = local_dt.astimezone(pytz.utc)
+        print(utc_dt)
+        return utc_dt
+
 # TODO - give a different id to all quiz.. and save them on database of all available and a link to the author's id
 
 

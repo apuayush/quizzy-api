@@ -35,7 +35,7 @@ $(document).ready(function () {
 
             success: function(event) {
                 event = JSON.parse(event);
-                signup_msg.html(event['message'])
+                $('#message').html(event['message'])
                 console.log('message')
             }
         })
