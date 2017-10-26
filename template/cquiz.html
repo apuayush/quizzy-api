@@ -27,7 +27,11 @@
 <body>
 <h1>Hi!!!  {{user}}</h1>
 <h1>Hello Here U can create a quiz</h1>
-<p><input type="number" name="noOfQuestion" id="noOfQuestion" onchange="setQuestionModule();"/></p>
+<p><span style="color:white;">Quiz - title </span><input type="text" name="quiz-title" id="quiz-title" /></p>
+
+<p><span style="color:white;">start time</span> <input type="datetime-local" name="start-time" id="start-time" /></p>
+<p><span style="color:white;">time-limit (in minutes)</span> <input type="number" name="time-limit" id="time-limit" /></p>
+
 <div id="quesSet" >
 <div id="ques_module">
     {% module questions_module() %}

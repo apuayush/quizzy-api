@@ -20,5 +20,25 @@ $(document).ready(function () {
                 ques_set1.push({"question": question, "options": values, "correct": correct})
             }
             console.log(ques_set1);
+            console.log($('#start-time').val())
+
+            $.ajax({
+            url: '/cquiz',
+            data: {
+                'quiz_title': $('#quiz-title').val(),
+                'question': JSON.stringify(ques_set1),
+                'time-limit': $('#time-limit').val(),
+                'start-time': $('#start-time').val()
+
+            },
+            type: 'POST',
+
+            success: function(event) {
+                event = JSON.parse(event);
+                signup_msg.html(event['message'])
+                console.log('message')
+            }
+        })
+
         })
 })
