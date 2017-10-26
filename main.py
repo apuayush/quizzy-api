@@ -27,7 +27,6 @@ class NoConnectionException(Exception):
 
 class QuestionsModule(UIModule):
     def render(self, *args, **kwargs):
-        print(args)
         return self.render_string('questions.html')
 
 
@@ -184,5 +183,5 @@ app = Application(
 
 if __name__ == "__main__":
     server = HTTPServer(app)
-    server.listen(8080)
+    server.listen(8100)
     IOLoop.current().start()

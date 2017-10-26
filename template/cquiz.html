@@ -15,7 +15,7 @@
             var ques_set = $('#quesSet')
             ques_set.empty()
             console.log(ques_temp)
-            for(var i=1;i<noQues;i++) {
+            for(var i=0;i<noQues;i++) {
                 var clone = ques_temp.clone()
                 console.log(clone)
                 $(ques_set).append(clone)
@@ -23,24 +23,22 @@
 
         }
     </script>
-    <script type="text/javascript" src="../static/js/cquiz.js"></script>
 </head>
 <body>
 <h1>Hi!!!  {{user}}</h1>
 <h1>Hello Here U can create a quiz</h1>
 <p><input type="number" name="noOfQuestion" id="noOfQuestion" onchange="setQuestionModule();"/></p>
+<div id="quesSet" >
 <div id="ques_module">
     {% module questions_module() %}
 </div>
-
-<form>
-<div id="quesSet" >
 </div>
     <input type="button" id="generate" >
-</form>
+
 <!--Todo - add websocket to communicate with no of ques and uimodule-->
 
 </body>
+<script type="text/javascript" src="../static/js/cquiz.js"></script>
 </html>
 <!--
 1- send an ajax request to route /cquiz POST
