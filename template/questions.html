@@ -10,6 +10,18 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+		<script src="text/javascript">
+		function insertQuestions(){
+			var correct=document.getElementById('correct').value;
+			var question=document.getElementById('question_added').value;
+			var option1=document.getElementById('opt1').value;
+			var option2=document.getElementById('opt2').value;
+			var option3=document.getElementById('opt3').value;
+			var option4=document.getElementById('opt4').value;
+		}
+		</script>
+
 	</head>
 	<body class="bg-dark">
 		<div class="container">
@@ -25,37 +37,37 @@
 					<div class="form-group row">
 						<label class="col-sm-2 col-form-label">Option 1:</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control opt" id="opt" placeholder="Option 1">
+							<input type="text" class="form-control opt" id="opt1" placeholder="Option 1">
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-sm-2 col-form-label">Option 2:</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="opt" placeholder="Option 2">
+							<input type="text" class="form-control" id="opt2" placeholder="Option 2">
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-sm-2 col-form-label">Option 3:</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control opt"  id="opt" placeholder="Option 3">
+							<input type="text" class="form-control opt"  id="opt3" placeholder="Option 3">
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-sm-2 col-form-label">Option 4:</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control opt" id="opt" placeholder="Option 4">
+							<input type="text" class="form-control opt" id="opt4" placeholder="Option 4">
 						</div>
 					</div>
 					</div>
 
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Option 4:</label>
+						<label class="col-sm-2 col-form-label">Correct Answer:</label>
 						<div class="col-sm-10">
 							<select class="form-control" name="correct" id="correct">
-								<option>1</option>
-								<option>2</option>
-								<option>3</option>
-								<option>4</option>
+								<option>A</option>
+								<option>B</option>
+								<option>C</option>
+								<option>D</option>
 							</select>
 						</div>
 					</div>

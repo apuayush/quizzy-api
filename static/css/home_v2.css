@@ -1,0 +1,421 @@
+body{
+	font-family: 'Raleway',sans-serif;
+	overflow-x: hidden;
+}
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+nav ul{
+	width: 100%;
+	position: relative;
+	background: black;
+	opacity: 0.9;
+	overflow: hidden;
+	z-index:100;
+}
+
+nav ul li{
+	font-size: 20px;
+	display: inline-block;
+	padding: 20px 20px;
+	color:white;
+}
+
+nav ul .list-item{
+	position: relative;
+	left:42%;
+}
+
+nav ul li:hover{
+	background: #273746;
+}
+
+.logo{
+	position: relative;
+	left:-20px;
+}
+.dropbtn{
+	display: none;
+}
+
+.display-logo{
+	position: absolute;
+	left:39%;
+	top:32%;
+	font-size:60px;
+	color:white;
+}
+
+.description{
+	font-size: 20px;
+	position: absolute;
+	top:44%;
+	left:33%;
+	color:white;
+}
+
+.btns{
+	position: absolute;
+	height: 140px;
+	width:500px;
+	left:35%;
+	top:55%;
+}
+
+.take-quiz{
+	border:3px solid white;
+	border-radius: 3px;
+	background: rgba(255,255,255,0);
+	height: 65px;
+	width:150px;
+	position: relative;
+	top:10px;
+	color:white;
+	font-size:18px;
+}
+
+.create-quiz{
+	border:3px solid white;
+	border-radius: 3px;
+	background: rgba(255,255,255,0);
+	height: 65px;
+	width:150px;
+	position: relative;
+	top:10px;
+	left:2%;
+	color:white;
+	font-size: 18px;
+}
+
+.take-quiz:hover{
+	background: rgba(255,255,255,0.1);
+}
+
+.create-quiz:hover{
+	background: rgba(255,255,255,0.1);
+}
+
+.mouse-icon {
+    border: 2px solid #fff;
+    border-radius: 16px;
+    display: block;
+    height: 50px;
+    margin: -100px auto 50px;
+    position: absolute;
+    width: 30px;
+    z-index: 10;
+    top:100%;
+    left:45.5%;
+}
+.mouse-icon .scroll {
+    animation-delay: 0s;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-name: scrolling;
+    animation-play-state: running;
+    animation-timing-function: linear;
+}
+.mouse-icon .scroll {
+    background: #fff none repeat scroll 0 0;
+    border-radius: 10px;
+    height: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 4px;
+    width: 4px;
+}
+
+@keyframes scrolling {
+0% {
+    opacity: 0;
+    top: 5px;
+}
+30% {
+    opacity: 1;
+    top: 10px;
+}
+100% {
+    opacity: 0;
+    top: 25px;
+}
+}
+
+.quiz-contents{
+	position: relative;
+	top:650px;
+	height: 750px;
+	width:100%;
+}
+
+.paper-img{
+	position: relative;
+	top:10px;
+	left:38%;
+	border: 0;
+	border-radius: 5px;
+}
+
+.quiz-content-header{
+	position: relative;
+	font-size: 42px;
+	font-weight: bolder;
+	left:26%;
+	top:20px;
+	color:-webkit-linear-gradient(#D35400,#935116);
+	z-index: 10;
+}
+
+.aboutus{
+	position: relative;
+	top:650px;
+	height: 300px;
+	width:100%;
+}
+
+.text-email-head{
+	position: relative;
+	font-size: 40px;
+	font-weight: bolder;
+	color:#273746;
+	top:20px;
+	left:35%;
+}
+
+.text-email-desc{
+	position: relative;
+	font-size: 20px;
+	color:#273746;
+	top:10%;
+	left:30%;
+}
+
+.input-email{
+	position: relative;
+	top:21px;
+	left:31%;
+	font-size: 23px;
+	height: 60px;
+	width:400px;
+	border-radius: 4px;
+	border: 0;
+	padding: 10px;
+}
+
+.submit-email{
+	position: relative;
+	top:30px;
+	left:41%;
+	border: 0;
+	height: 60px;
+	width:  120px;
+	color:white;
+	background: #E74C3C;
+	border-radius: 3px;
+	font-weight: initial;
+}
+
+.submit-email:hover{
+	background: #C0392B;
+}
+
+.bottom-banner{
+	position: relative;
+	top:650px;
+	height:120px;
+	font-weight: lighter;	
+	background-color: #1B2631;
+}
+.link-left{
+	position: relative;
+	left:12%;
+}
+
+.link-right{
+	position: relative;
+	left:32%;
+	top:-64%;
+}
+
+.link-left a{
+	text-decoration:none;
+	color:white;
+	font-size: 18px;
+}
+
+.link-left a:hover{
+	color:#154360;
+}
+
+.link-right a{
+	text-decoration:none;
+	color:white;
+	font-size: 18px;
+}
+
+.link-right a:hover{
+	color:#154360;
+}
+
+.powered{
+	position: relative;
+	left:65%;
+	top:-105%;
+	font-size: 25px;
+	color:white;
+}
+
+@media screen and (max-width:810px){
+	#list{
+		display: none;
+		z-index:10;
+	}
+	nav ul .list-item{
+		margi -20px;
+		box-sizing: border-box;
+		width: 100%;
+		font-size: 18px;
+	}
+	.dropbtn{
+		border: 0;
+		background: black;
+		opacity: 0.9;
+		display: inline-block;
+		position: absolute;
+		color:white;
+		left:87%;
+		top:15px;
+		font-size: 22px;
+	}
+}
+@media screen and (max-width:360px){
+	.btns{
+		width: 60%;
+		left:28%;
+		padding: 5px;
+	}
+	.create-quiz{
+		top:12%;
+		left:-1px;
+	}
+	.display-logo{
+		left:20%;
+	}
+	.description{
+		left:10%;
+	}
+}
+
+@media (min-width: 360px) and (max-width: 420px){
+	.text-email-head{
+		left:17%;
+	}
+	.text-email-desc{
+		left:5%;
+	}
+	.btns{
+		width: 60%;
+		left:28%;
+		padding: 5px;
+	}
+	.create-quiz{
+		top:12%;
+		left:-1px;
+	}
+	.display-logo{
+		left:23%;
+	}
+	.description{
+		left:13%;
+	}
+}
+
+
+@media (min-width: 700px) and (max-width:1023px){
+	.btns{
+		top:50%;
+		left:30%;
+	}
+	.display-logo{
+		left:35%;
+	}
+	.description{
+		left:24%;
+	}
+}
+
+@media screen and (min-width:1024px){
+	.btns{
+		top:50%;
+		left:35%;
+	}
+	.display-logo{
+		left:38%;
+	}
+	.description{
+		top:43%;
+		left:32%;
+	}
+}
+/*@media screen and (max-width:412px){
+	.display-logo{
+		font-size: 35px;
+	}
+	.description{
+		top:40%;
+		left:25%;
+		font-size: 12px;
+	}
+}
+
+@media screen and (max-width:320px){
+	.display-logo{
+		font-size: 30px;
+		left:33%;
+	}
+	.description{
+		top:40%;
+		left:21%;
+		font-size: 10px;
+	}
+}
+
+@media screen and (max-width:375px){
+	.display-logo{
+		font-size: 30px;
+		left:34%;
+	}
+	.description{
+		top:40%;
+		left:20%;
+		font-size: 12px;
+	}
+}
+
+@media screen and (max-width:768px){
+	.display-logo{
+		font-size: 70px;
+		left:33%;
+	}
+	.description{
+		top:44%;
+		left:25%;
+		font-size: 20px;
+	}
+}
+
+@media screen and (max-width: 1024px){
+	.display-logo{
+		font-size: 80px;
+		left:34%;
+	}
+	.description{
+		top:40%;
+		left:23%;
+		font-size: 28px;
+	}
+}
+
+*/

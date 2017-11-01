@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="../static/js/quiz.js"></script>
+<title>Questions</title>
+</head>
+<body>
+<form name="questions_insertion">
+<label>Enter Question: </label><input type="text" name="question_added"><br><br>
+<label>Enter Option 1:</label><input type="text" name="opt1"><br><br>
+<label>Enter Option 2:</label><input type="text" name="opt2"><br><br>
+<label>Enter Option 3:</label><input type="text" name="opt3"><br><br>
+<label>Enter Option 4:</label><input type="text" name="opt4"><br><br>
+<label>Enter Correct Option: </label><select name="correct">
+<option>A</option>
+<option>B</option>
+<option>C</option>
+<option>D</option>
+</select><br><br>
+<input type="button" onclick="insertQuestion()" value="Insert"><br><br>
+<input type="reset" name="reset" value="Add More"><br>
+</form>
+</body>
+</html>

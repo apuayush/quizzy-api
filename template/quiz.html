@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="quiz.css" type="text/css">
-<script src="quiz.js"></script>
+<script src="../js/quiz.js"></script>
+<link rel="stylesheet" href="../quiz.css" type="text/css">
 <style type="text/css">
 
 body{
@@ -167,7 +167,7 @@ body{
  		<h5>Rules and Regulations</h5><br><br>
  		<div style="position:relative;top:-60px;">
  		<ul style="font-size:15px;">
- 			<li> Complete the Quiz within alloted time i.e <span style="color:red;">10 minutes</span></li>
+ 			<li> Complete the Quiz within alloted time i.e <span style="color:red;">{{time_alloted}} minutes</span></li>
  			<li> Once you submit answer of one question you cannot <br>return back to the question again</li>
  			<li> Once you skip a question you cannot return back to <br>the question </li>
  			<li> After finishing the quiz click on finish to get the marks </li>
@@ -187,7 +187,7 @@ body{
  	Test Ended
  	</div>
 
- 	<div style="background:#3498DB;height:100px;width:500px;position: relative;top:272px;">
+ 	<div style="background:#3498DB;height:100px;width:500px;position: relative;top:273px;">
  		<input type="button" id="start_quiz" onclick="changeBtn();generateFirstQuestion();" value="Start Quiz">
  			<div class="buttons" id="buttons_sub" style="display: none;">
 

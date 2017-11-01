@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    console.log($('#message').text())
         $('#generate').click(function(){
             var ques_set = $('#quesSet').children();
             var ques_set1 = [];
@@ -20,7 +21,7 @@ $(document).ready(function () {
                 ques_set1.push({"question": question, "options": values, "correct": correct})
             }
             console.log(ques_set1);
-            console.log($('#start-time').val())
+            console.log(Date.parse($('#start-time').val())/1000);
 
             $.ajax({
             url: '/cquiz',
@@ -28,17 +29,17 @@ $(document).ready(function () {
                 'quiz_title': $('#quiz-title').val(),
                 'question': JSON.stringify(ques_set1),
                 'time-limit': $('#time-limit').val(),
-                'start-time': $('#start-time').val()
-
+                'start-time': Date.parse($('#start-time').val())/1000
             },
             type: 'POST',
 
             success: function(event) {
                 event = JSON.parse(event);
                 $('#message').html(event['message'])
-                console.log('message')
+                console.log(event['message'])
             }
         })
 
         })
+
 })

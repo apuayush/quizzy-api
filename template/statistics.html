@@ -100,37 +100,18 @@
 </head>
 <body>
 
-<!-- Navigation Bar-->
-<div>
-<ul>
-  <li><a href="#website">
-  <!-- Logo -->
-  <div class="wrapper">
-    <div style="font-weight: bolder;font-family: 'Raleway',sans-serif;font-size: 19px;">QUIZZY</div>
-  </div>
-  </a></li>
-
-  <li><a href="#home"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
-  <li class="dropdown">
-    <a href="javascript:void(0)" class="dropbtn"><span class="glyphicon glyphicon-file"></span>&nbsp;Resources</a>
-    <div class="dropdown-content">
-      <a href="#">Practice Test</a>
-      <a href="#">Topics Covered</a>
-      <a href="#">Syllabus</a>
-    </div>
-  </li>
-  <li><a href="#media"><span class="glyphicon glyphicon-picture"></span>&nbsp;Media</a></li>
-  <li><a href="#about"><span class="glyphicon glyphicon-earphone"></span>&nbsp;About Us</a></li>
-  <li class="username_home"><a href="#username"><span class="glyphicon glyphicon-user"></span>&nbsp;MEHUL SACHDEVA</a></li>
-  <li class="dropdown setting">
-  	<a href="#profile" class="dropbtn">&nbsp;<span class="glyphicon glyphicon-cog"></span>&nbsp;Settings&nbsp;&nbsp;&nbsp;</a>
-  	<div class="dropdown-content">
-  		<a href="#">Profile Picture</a>
-  		<a href="#">Description</a>
-  		<a href="#">Sign Out</a>
-  	</div>
-  </li> 
-</ul>
+<div class="header">
+	<nav>
+		<ul>
+			<a href="home_v2.html"><li class="logo">&nbsp;&nbsp;&nbsp;QUIZZY</li><button class="dropbtn"><span class="glyphicon glyphicon-menu-hamburger"></span></button></a>
+			<span id="list">
+				<a href="statistics.html"><li class="list-item"><span class="glyphicon glyphicon-stats"></span>&nbsp;Statistics</li></a>	
+				<a href="#"><li class="list-item"><span class="glyphicon glyphicon-user"></span>&nbsp;Mehul Sachdeva</li></a>
+				<a href="#" onClick="document.getElementById('about-us').style.display='block'"><li class="list-item"><span class="glyphicon glyphicon-envelope"></span>&nbsp;About Us</li></a>
+  				<a href="#"><li class="list-item"><span class="glyphicon glyphicon-cog"></span>&nbsp;Settings</li></a>	
+  			</span>
+  		</ul>				
+	</nav>
 </div>
 
 <div class="stats-container">
@@ -148,22 +129,24 @@
 		</div>
 	</div>
 	<div class="stats-content-options">
-		<div class="stats-box-1">
+		<a href="statistics.html"><div class="stats-box-1">
 			<span class="individual-stats">My Statistics</span>
 		</div>
-		<div class="stats-box-2">
+		</a>
+		<a href="collective.html"><div class="stats-box-2">
 			<span class="individual-stats">Collective Statistics</span>
-		</div>
-		<div class="stats-box-3">
+		</div></a>
+		<a href=""><div class="stats-box-3">
 			<span class="individual-stats">Remarks</span>
-		</div>
-		<div class="comment-section">
+		</div></a>
+		<a href=""><div class="comment-section">
 			<span class="individual-stats">Comments</span>
 			<div class="message">
 				<span class="message-content">Going Good. Keep up the good work !</span>
 				<span class="message-sender">Shahrukh Khan</span>
 			</div>
 		</div>
+		</a>
 	</div>
 	<br>
 </div>

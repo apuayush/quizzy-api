@@ -130,3 +130,4 @@ function checkEmail(email) {
         return false;
     }
 }
+// TODO - add a number of appearing question tag in cquiz

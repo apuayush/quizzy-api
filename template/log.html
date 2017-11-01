@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../static/css/log.css" type="text/css">
+<!-- <link rel="stylesheet" href="../static/css/tools/animate.css"> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../static/js/log.js"></script>
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+
+<title>Template</title>
+</head>
+<body>
+<h1> Create Your Own Quiz...<span id="vertical">|</span></h1>
+<h3> Quizzy is an online portal for creating quizzes and distributing them.</h3>
+<button class="login" onclick="document.getElementById('loginform').style.display='block'">LOGIN</button>
+<div id="loginform" class="modal">
+  <form class="modal-content animate" method="post" name="login" id="login" action="/login">
+  <button class="cross" onclick="document.getElementById('loginform').style.display='none'">&#10006;</button>
+    <div class="img">
+    <img src="../static/img/user.jpg" height="50px" width="50px">
+    </div><br>
+      <label>&nbsp;&nbsp;&nbsp;&nbsp;Username : </label>
+      <input type="text" name="username" id="username" required><br><br>
+
+      <label>&nbsp;&nbsp;&nbsp;&nbsp;Password &nbsp;:</label>
+      <input type="password" name="password" id="password" required><br><br>
+
+      <input type="submit" class="submitlogin" value="LOGIN" id="loginbtn">&nbsp;&nbsp;&nbsp;
+      <button type="reset" onclick="document.getElementById('loginform').style.display='none'" class="cancelbtn">CANCEL</button><br><br>
+
+  </form>
+ </div>
+</div>
+<button class="register" onclick="document.getElementById('registerform').style.display='block'">REGISTER</button>
+<div id="registerform" class="modal">
+	<form class="modal-content-2 animate" name="signup" id="signupbtn">
+	<button class="cross" onclick="document.getElementById('registerform').style.display='none'">&#10006;</button>
+	<div class="img">
+	<img src="../static/img/user.jpg" height="60px" width="60px">
+	</div><br>
+	<table cellspacing="5px" cellpadding="2px" style="text-align: center;">
+	<tr>
+		<td><label>&nbsp; Name  &nbsp;&nbsp;  : </label></td>
+		<td><input type="text" name="fname" class="username" id="s-name" ></td>
+	</tr>
+	<tr>
+		<td><label>&nbsp; Username <span style="color:red;font-size:16px;">*</span>&nbsp;: </label></td>
+		<td><input type="text" name="username" class="username"  id="s-username" required></td>
+	</tr>
+	<tr>
+		<td><label>&nbsp; Password <span style="color:red;font-size:16px;">*</span>&nbsp;&nbsp;: </label></td>
+		<td><input type="password" name="password" class="password" id="s-password"  required>
+		<b><div id="password_strength"></div></b></td>
+	</tr>
+			<tr>
+		<td><label>&nbsp; Re-Password <span style="color:red;font-size:16px;">*</span>&nbsp;&nbsp;: </label></td>
+		<td><input type="password" name="password" class="password" id="s-r-password"  required>
+		<b><div id="signup-msg"></div></b></td>
+	</tr>
+	<tr>
+		<td><label>&nbsp; Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </label></td>
+		<td><input type="email" name="email" class="username" id = "email" required></td>
+	</tr>
+	</table><br><br>
+		<button type="submit" class="submitlogin" id="signupbtn" value="REGISTER" >&nbsp;&nbsp;&nbsp;
+		<button type="reset" onclick="document.getElementById('registerform').style.display='none';document.getElementById('password_strength').innerHTML='';document.getElementById('display_text').innerHTML='';" class="cancelbtn">CANCEL</button><br><br>
+		<span id="display_text" style="font-size:12px;color:red;"></span>
+	</form>
+	</div>
+
+	
+</body>
+</html>

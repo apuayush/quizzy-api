@@ -48,14 +48,6 @@ nav ul li:hover{
 	color:white;
 }
 
-.linegraph-container{
-	position: absolute;
-	top:645px;
-	left:10px;
-	height:350px;
-	width:1345px;
-}
-
 .stats-content{
 	position: absolute;
 	left:70px;
@@ -168,32 +160,34 @@ nav ul li:hover{
 	font-size:15px;
 	font-weight: bold;
 }
-/*.stats-box-1:hover{
-	-moz-box-shadow: 1px 2px 4px rgba(0, 0, 0,0.5);
-	-webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
-	box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
-	cursor:pointer;
-	transition: 0.5s ease;
-	height:300px;
-	width:320px;
+
+.col-container-barchart{
+	position: relative;
+	top:280px;
+	height: 500px;
+	width:1345px;
+	background: grey;
+	left:10px;
 }
 
-.stats-box-2:hover{
-	-webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
-	-webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
-	box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
-	cursor:pointer;
-	transition: 0.5s ease;
-	height:300px;
-	width:320px;
+.col-container-classmark{
+	font-size: 23px;
+	height: 1000px;
+	width:1345px;
+	position: relative;
+	top:95px;
+	left:10px;
 }
 
-.stats-box-3:hover{
-	box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
-	-webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
-	box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
-	cursor:pointer;
-	transition: 0.5s ease;
-	height:300px;
-	width:320px;
-}*/
+.heading{
+	position: relative;
+	top:150px;
+	font-size: 45px;
+	font-weight: bolder;
+}
+
+.class-statistics{
+	position: relative;
+	left:40px;
+	top:170px;
+}

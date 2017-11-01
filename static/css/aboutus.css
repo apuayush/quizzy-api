@@ -1,0 +1,66 @@
+.aboutus-pop{
+	z-index: 100;
+	height:380px;
+	position: absolute;
+	left:25%;
+	width:500px;
+	background-color:#FEF9E7;
+	border-radius: 3px;
+	border: 2px solid #F1C40F;
+}
+
+.close-aboutus{
+	background: none;
+	border: 0;
+	font-size:18px;
+}
+
+.aboutus-heading{
+	text-align:center;
+	position: relative;
+	top:5%;
+	color:black;
+	font-size:30px;
+}
+
+.member-details{
+	position: relative;
+	top:-20px;
+	text-align: center;
+}
+
+.member1{
+	position: relative;
+	left:12%;
+	top:-30px;
+	display: inline-block;
+	height:200px;
+	width:180px;
+}
+
+.member2{
+	position: relative;
+	left:15%;
+	top:-30px;
+	display: inline-block;
+	height:200px;
+	width:180px;
+}
+
+
+.circle-img{
+	height:180px;
+	width:180px;
+	border-radius:50%;
+}
+
+.name{
+	text-align: center;
+	font-size:22px;
+}
+
+.member-desc{
+	font-size:16px;
+	color:black;
+	text-align:center;
+}
