@@ -15,11 +15,6 @@ nav ul li{
 	color:white;
 }
 
-/* nav ul .list-item{
-	position: relative;
-	left:42%;
-} */
-
 nav ul li:hover{
 	background: #273746;
 }
@@ -61,18 +56,12 @@ nav ul li:hover{
 	padding: 0 20px;
 }
 
-
-
 #chartContainer{
 	height: 325px;
 	width:100%;
 }
 
 .stats-content-options{
-	/* position: absolute;
-	top:35px;
-	left:30px; */
-	/* width:1400px; */
 	height:300px;
 	margin-top: 35px; 
 }
@@ -84,21 +73,13 @@ nav ul li:hover{
 }
 
 .stats-box-1{
-	/*position: relative;*/
-	/*left:0;*/
-	/* display: inline-block; */
 	height:260px;
-	/* width:310px; */
 	border: 0;
-	/* top:0px; */
 	border-radius: 2px;
 	background: #E74C3C;
 }
 
 .individual-stats{
-/* 	  position: relative;*/
-/* 	top:15%; */
-/*    left:35px; */
 	font-size: 2.75em;
 	color:white;
 	font-weight: bolder;
@@ -107,36 +88,21 @@ nav ul li:hover{
 
 
 .stats-box-2{
-	/*top:57px;*/
-	/* display: inline-block; */
-	/*position: relative;*/
-	/* left:5px; */
 	height: 260px;
-	/* width:310px; */
 	background: #85C1E9;
 	border:0;
 	border-radius: 2px;
 }
 
 .stats-box-3{
-	/* display: inline-block; */
-	/* position: relative; */
-	/* left:10px;
-	top:1px; */
 	height: 260px;
-	/* width: 310px; */
 	background: #52BE80;
 	border: 0;
 	border-radius: 2px;
 }
 
 .comment-container{
-	/* display: inline-block; */
-	/* position: relative; */
-	/* top:64px;
-	left:15px; */
 	height:260px;
-	/* width:330px; */
 	background: #F4D03F;
 	border: 0;
 	border-radius: 2px;
@@ -148,29 +114,19 @@ nav ul li:hover{
 
 
 .message{
-	/* position: relative; */
 	height: 100%;
-	/* top:70px;
-	width:280px;
-	left:22px; */
 	background: #F9E79F;
 	border-radius: 5px;
 	display: inline-block;
 }
 
 .message-content{
-	/* position: relative;
-	top:40px;
-	left:20px; */
 	font-size: 1.33em;
     padding: 5px 5px 14% 5px;
     display: block;
 }
 
 .message-sender{
-/* 	position: relative;
-top:85px;
-left:50px; */
 	font-size:1.1em;
 	font-weight: bold;
 	padding-right: 3%;
@@ -180,26 +136,10 @@ left:50px; */
 }
 
 .col-container-barchart{
-	/* position: relative;
-	top:280px; */
 	height: 500px;
-	/* width:1345px; */
-	/* background: grey; */
-	/* left:10px; */
 }
 
-/*.col-container-classmark{
-	font-size: 1em; 
-	height: 1000px; 
-	width:1345px; 
- 	position: relative;
-	top:95px;
-	left:10px; 
-} */
-
 .heading{
-	/* position: relative;
-	top:150px; */
 	font-size: 2.5em;
 	font-weight: bolder;
 	text-align: center;
@@ -207,8 +147,5 @@ left:50px; */
 }
 
 .class-statistics{
-	/* position: relative;
-	left:40px;
-	top:170px; */
 	font-size: 1.75em;
 }
