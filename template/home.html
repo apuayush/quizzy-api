@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  
+
+<!-- Was causing the page not to be wide enough-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <script src="../static/js/tools/jquery-1.11.1.min.js"></script>
@@ -21,6 +22,9 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+	margin:0px;
+	padding:0px;
+	width:100%;
 }
 
 .quiz-contents{
@@ -28,7 +32,8 @@ body{
 	background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover; 
+    background-size: cover;
+    padding: 15px 0;
 }
 
 .aboutus{
@@ -43,13 +48,12 @@ body{
 	background: url("../static/img/quiz-model-bg.jpg");
 	background-repeat: no-repeat;
 	background-position: fixed;
-	position: relative;
 	height: 290px;
 	width:240px;
 	border:0;
-	top:5%;
-	left:4%;
 	border-radius: 3px;
+	display: inline-block;
+	margin-bottom: 10px;
 }
 </style>
 </head>
@@ -63,79 +67,97 @@ body{
 				<a href="statistics.html"><li class="list-item"><span class="glyphicon glyphicon-stats"></span>&nbsp;Statistics</li></a>	
 				<a href="#"><li class="list-item"><span class="glyphicon glyphicon-user"></span>&nbsp;{{user}}</li></a>
 				<a href="#" onClick="document.getElementById('about-us').style.display='block'"><li class="list-item"><span class="glyphicon glyphicon-envelope"></span>&nbsp;About Us</li></a>
-  				<a href="/logout"><li class="list-item"><span class="glyphicon glyphicon-cog"></span>&nbsp;logout</li></a>
+  				<a href="/logout"><li class="list-item"><span class="glyphicon glyphicon-cog"></span>&nbsp;Logout</li></a>
   			</span>
   		</ul>				
 	</nav>
 </div>
 
-<div class="container">
-	<div class="display-logo">QUIZZY</div>
-	<div class="description">Creating a community of Life-Long learners</div>
+<div class="container-fluid">
+	<div class="row title-container">
+		<div class="display-logo">QUIZZY</div>
+		<div class="description">Creating a community of Life-Long learners</div>
 
-	<div class="btns">
-		<form>
-			<input type="submit" class="take-quiz" value="TAKE QUIZ" formaction="/tquiz"/>
-			<input type="submit" class="create-quiz" value="CREATE QUIZ" formaction="/cquiz"/>
+		<div class="btns">
+			<form>
+				<input type="submit" class="take-quiz" value="TAKE QUIZ" formaction="/tquiz"/>
+				<input type="submit" class="create-quiz" value="CREATE QUIZ" formaction="/cquiz"/>
+			</form>
+		</div>
+
+		<div class="mouse-icon hidden-xs">
+			<div class="scroll"></div>
+		</div>
+	</div>
+
+	<!-- Quiz Models-->
+	<div class="row quiz-contents" id="quiz-contents">
+		<img src="../static/img/paper.jpg" height="80px" width="200px" class="paper-img">
+		<span class="quiz-content-header">QUIZ</span>
+		<div class="quizzes">
+			<div class="model">
+				<div class="topic">Basics In HTML</div>
+				<div class="topic-description">Pattern of Questions</div>
+				<a class="quiz-a" href="quiz.html"><button class="btn-quiz">TAKE QUIZ</button></a>
+			</div>
+			<div class="model">
+				<div class="topic">Basics In HTML</div>
+				<div class="topic-description">Pattern of Questions</div>
+				<a class="quiz-a" href="quiz.html"><button class="btn-quiz">TAKE QUIZ</button></a>
+			</div>
+			<div class="model">
+				<div class="topic">Basics In HTML</div>
+				<div class="topic-description">Pattern of Questions</div>
+				<a class="quiz-a" href="quiz.html"><button class="btn-quiz">TAKE QUIZ</button></a>
+			</div>
+			<div class="model">
+				<div class="topic">Basics In HTML</div>
+				<div class="topic-description">Pattern of Questions</div>
+				<a class="quiz-a" href="quiz.html"><button class="btn-quiz">TAKE QUIZ</button></a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Email and FAQs-->
+	<div class="row aboutus">	
+		<div class="text-email-head">Keep in Touch!</div>
+		<div class="text-email-desc">Enter your email to get time to time notifications..</div><br>
+		<form class="text-email-form">
+			<input class="input-email" placeholder=" Email" type="email"><br><br>
+			<input type="button" value="Submit" class="submit-email">
 		</form>
 	</div>
-
-	<div class="mouse-icon hidden-xs">
-		<div class="scroll"></div>
+	<div class="row bottom-banner"><br>
+		<div class="col-xs-6 col-md-4 link"><a href="#">Home</a></div>
+		<div class="col-xs-6 col-md-4 link"><a href="#">FAQs</a></div>
+		<div class="col-xs-6 col-md-4 link"><a href="#">Report a Problem</a></div>
+		<div class="col-xs-6 col-md-4 link"><a href="#">Instructions</a></div>
+		<div class="col-xs-6 col-md-4 link"><a href="#">Quiz Details</a></div>
+		<div class="col-xs-6 col-md-4 link"><a href="#" onClick="document.getElementById('about-us').style.display='block'">Team</a></div>
+		<div class="col-xs-12 powered">Powered By &copy;&nbsp;Mehul Sachdeva</div>
 	</div>
-</div>
 
-<!-- Quiz Models-->
-<div class="quiz-contents" id="quiz-contents">
-	<img src="../static/img/paper.jpg" height="80px" width="200px" class="paper-img">
-	<span class="quiz-content-header">QUIZ</span>
-	<div class="model">
-	<div class="topic">Basics In HTML</div>
-	<div class="topic-description">Pattern of Questions</div>
-	<a href="quiz.html"><button class="btn-quiz">TAKE QUIZ</button></a>
-</div>
-</div>
-
-<!-- Email and FAQs-->
-<div class="aboutus">	
-	<div class="text-email-head">Keep in Touch!</div>
-	<div class="text-email-desc">Enter your email to get time to time notifications..</div><br>
-	<form>
-		<input class="input-email" placeholder=" Email" type="email"><br><br>
-		<input type="button" value="Submit" class="submit-email">
-	</form>
-</div>
-<div class="bottom-banner"><br>
-	<div class="link-left"><a href="#">Home</a></div>
-	<div class="link-left"><a href="#">FAQs</a></div>
-	<div class="link-left"><a href="#">Report a Problem</a></div>
-	<div class="link-right"><a href="#">Instructions</a></div>
-	<div class="link-right"><a href="#">Quiz Details</a></div>
-	<div class="link-right"><a href="#" onClick="document.getElementById('about-us').style.display='block'">Team</a></div>
-	<div class="powered">Powered By &copy;&nbsp;Mehul Sachdeva</div>
-</div>
-
-<!--About Us Pop -->
-<div class="aboutus-pop" id="about-us" style="display: none;">
-	<div class="cross-btn">
-		<button class="close-aboutus" onclick="document.getElementById('about-us').style.display='none'">&#10006;</button>
-	<div class="aboutus-heading">Know More About Us</div><br><br>
-	<div class="member1">
-		<img src="../static/img/libdisplay.jpg" class="circle-img">
-		<div class="member-desc"><br>
-			<div class="name">Mehul Sachdeva</div>
-			<div class="desc">FrontEnd Developer</div>
+	<!--About Us Pop -->
+	<div class="aboutus-pop" id="about-us" style="display: none;">
+		<div class="cross-btn">
+			<button class="close-aboutus" onclick="document.getElementById('about-us').style.display='none'">&#10006;</button>
+		<div class="aboutus-heading">Know More About Us</div><br><br>
+		<div class="member1">
+			<img src="../static/img/libdisplay.jpg" class="circle-img">
+			<div class="member-desc"><br>
+				<div class="name">Mehul Sachdeva</div>
+				<div class="desc">FrontEnd Developer</div>
+			</div>
 		</div>
-	</div>
-	<div class="member2">
-		<img src="../static/img/libdisplay.jpg" class="circle-img">
-		<div class="member-desc"><br>	
-			<div class="name">Pushkar Warale</div>
-			<div class="desc">BackEnd Developer</div>
+		<div class="member2">
+			<img src="../static/img/libdisplay.jpg" class="circle-img">
+			<div class="member-desc"><br>	
+				<div class="name">Pushkar Warale</div>
+				<div class="desc">BackEnd Developer</div>
+			</div>
 		</div>
 	</div>
 </div>
-
 
 <!--jQuery-->
 <script>
