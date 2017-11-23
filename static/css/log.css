@@ -3,41 +3,45 @@ body{
 	color: white;
   	transition: background 1s ease;
 	font-family: 'Raleway', sans-serif;
-	max-width: 100%;
+	margin: 0;
     overflow-x: hidden;
 }
 
+.container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.center{
+	text-align: center;
+}
+
 h1{
-	position: absolute;
-	top:270px;
-	left:480px;
 	white-space: nowrap;
+	font-size: 1.75em;
   	overflow: hidden;
-  	width: 30em;
+  	width: 11em;
+  	margin: auto;
   	animation: type 4s steps(60, end); 
 }
 
 h3{
-	position: absolute;
-	top:330px;
-	left:350px;
 	font-weight: inherit;
 }
 
 .login{
-	position:relative;
 	text-align: center;
 	font-size: 21px;
-	top:390px;
-	left:480px;
 	height: 55px;
-	width : 150px;
+	width: 6em;
 	border:3px white solid;
 	border-radius: 10px;
 	background-color:#4B0082; 
 	color: white;
 	font-family: 'Raleway', sans-serif;
-	
+	margin-right: 5px
 }
 
 .login:hover {
@@ -45,18 +49,16 @@ h3{
 }
 
 .register{
-	position:relative;
 	text-align: center;
 	font-size: 21px;
-	top : 390px;
-	left: 500px;
-	height:55px;
-	width:150px;
+	height: 55px;
+	width: 6em;
 	border:3px white solid;
 	border-radius: 10px;
 	background-color:#4B0082; 
 	color: white;
 	font-family: 'Raleway', sans-serif;
+	margin-left: 5px;
 }
 
 .register:hover {
@@ -87,34 +89,34 @@ h1:nth-child(2){
 
 /* The Modal (background) */
 
-
-
 .modal {
   /* Hidden by default */
   	display: none;
-    position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    left: 294px;
-    top: -50px;
+    position: absolute;
+    margin: auto;
+    left: 50%;
+  	top: 50%;
+  	transform: translate(-50%,-50%);
     /*padding-top: 60px;*/
 }
+
 .modal_extra{
 	/*default */
 	display: block;
-    position: fixed; /* Stay in place */
     z-index: 3; /* Sit on top */
-    left: 294px;
-    top: -50px;
 }
+div.img{
+	display: block;
+	margin-bottom: 1em;
+	clear: both;
+}
+
 .cross{
-	position: relative;
-	right:-290px;
-	top:-10px;
 	font-size:22px;
-	height:40px;
-	width:40px;
 	border:0;
 	background-color: rgba(0,0,0,0);
+    float: right;
 }
 
 
@@ -123,9 +125,6 @@ h1:nth-child(2){
 }
 /* Modal Content/Box */
 .modal-content {
-	position: relative;
-	top:200px;
-	left:185px;
     background-color: #fefefe;
     margin: 5px auto; /* 15% from the top and centered */
     border: 1px solid black;
@@ -139,9 +138,6 @@ h1:nth-child(2){
 }
 
 .modal-content-2 {
-	position: relative;
-	top:200px;
-	left:184px;
     background-color: #fefefe;
     margin: 5px auto; /* 15% from the top and centered */
     border: 1px solid #888;
@@ -165,8 +161,6 @@ h1:nth-child(2){
 }
 
 .submitlogin {
-	position: relative;
-	left: 40px;
 	height: 40px;
 	width: 100px;
 	background-color: #148F77;
@@ -175,6 +169,7 @@ h1:nth-child(2){
 	cursor: pointer;
 	color:white;
 	font-family: Tahoma;
+	padding-left: 5px;
 }
 
 .submitlogin:hover{
@@ -182,8 +177,6 @@ h1:nth-child(2){
 }
 
 .cancelbtn {
-	position: relative;
-	left: 40px;
 	height: 40px;
 	width: 100px;
 	background-color:#CB4335;
@@ -192,16 +185,13 @@ h1:nth-child(2){
 	cursor: pointer;
 	color: white;
 	font-family: Tahoma;
+	margin-left: 5px;
 }
 
 .cancelbtn:hover{
 	background-color: #E74C3C;
 }
 
-.img{
-	position: relative;
-	left:120px;
-}
 
 /* Add Zoom Animation */
 .animate {
@@ -219,21 +209,22 @@ h1:nth-child(2){
     to {transform: scale(1)}
 }
 
-#password_strength{
-	position:relative;
-	top:5px;
-	left:-70px;
-}
-
 
 .modal1 {
     display: block; /* Hidden by default */
-    position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    left: 294px;
-    top: -50px;
     height: 100px;
     width:200px;
     /*padding-top: 60px;*/
 }
 
+@media only screen and (max-width:321px){
+	.modal{
+		width:100%;
+	}
+
+	.modal-content, .modal-content-2{
+		height: 100%;
+		width: auto;
+	}
+}
