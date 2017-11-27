@@ -2,6 +2,9 @@ body{
 	font-family: 'Raleway',sans-serif;
     overflow-x: hidden;
     overflow-y: 800px;
+}
+
+.navbar-fixed-top + .container-fluid{
     padding-top: 52px;
 }
 
@@ -484,10 +487,3 @@ a:hover{
     color:#212F3D;
     font-weight: bold;
 }
-
-/* .nav{
-    position: fixed;
-    z-index: 10;
-    width: 100%;
-}
- */
