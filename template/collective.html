@@ -4,6 +4,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="../static/js/tools/bootstrap.min.js"></script>
 
@@ -13,7 +15,6 @@
 <!--Include CSS file-->
 <link rel="stylesheet" href="../static/css/home_newversion.css" type="text/css">
 <link rel="stylesheet" href="../static/css/collective.css" type="text/css">
-
 <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
   <script>
     zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
@@ -29,79 +30,101 @@
 </style>
 <body>
 
-
-<div class="header">
-  <nav>
-    <ul>
-      <a href="home_v2.html"><li class="logo">&nbsp;&nbsp;&nbsp;QUIZZY</li><button class="dropbtn"><span class="glyphicon glyphicon-menu-hamburger"></span></button></a>
-      <span id="list">
-        <a href="statistics.html"><li class="list-item"><span class="glyphicon glyphicon-stats"></span>&nbsp;Statistics</li></a>  
-        <a href="#"><li class="list-item"><span class="glyphicon glyphicon-user"></span>&nbsp;Mehul Sachdeva</li></a>
-        <a href="#" onClick="document.getElementById('about-us').style.display='block'"><li class="list-item"><span class="glyphicon glyphicon-envelope"></span>&nbsp;About Us</li></a>
-        <a href="#"><li class="list-item"><span class="glyphicon glyphicon-cog"></span>&nbsp;Settings</li></a>  
-        </span>
-      </ul>       
-  </nav>
-</div>
-
-<div class="col-container">
-  <div class="col-container-barchart">
-    <div id='myChart' height="500px" width="1345px"></div>
-  </div>
-  <div class="col-container-classmark">
-    <center><span class="heading">Class Statistics</span></center> 
-    <span class="class-statistics">
-      Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
-      Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
-      Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
-      Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
-      Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
-      Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
-      Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
-      Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
-      Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
-      Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
-      Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
-      Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
-      Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
-      Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
-      Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
-      Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
-      Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
-      Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
-      Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
-      Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
-      Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
-      Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
-      Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
-
-
-    </span>
-  </div>
-</div>
-
-<div class="stats-container">
-  <div class="stats-content-options">
-    <a href="Statistics.html"><div class="stats-box-1">
-      <span class="individual-stats">My Statistics</span>
-    </div>
-    </a>
-    <a href="collective.html"><div class="stats-box-2">
-      <span class="individual-stats">Collective Statistics</span>
-    </div></a>
-    <a href=""><div class="stats-box-3">
-      <span class="individual-stats">Remarks</span>
-    </div></a>
-    <a href=""><div class="comment-section">
-      <span class="individual-stats">Comments</span>
-      <div class="message">
-        <span class="message-content">Going Good. Keep up the good work !</span>
-        <span class="message-sender">Shahrukh Khan</span>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" 
+            data-toggle="collapse" data-target="#page-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="home_v2.html">
+            <!-- Logo -->
+            <div class="wrapper">
+              <div style="font-weight: bolder;font-family: 'Raleway',sans-serif;font-size: 19px;">QUIZZY</div>
+            </div>
+          </a>
       </div>
+    <div class="collapse navbar-collapse" id="page-navbar">
+      <ul class="nav navbar-nav">
+        <li><a href="statistics.html"><span class="glyphicon glyphicon-stats"></span>&nbsp;Statistics</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;Mehul Sachdeva</a></li>
+        <li><a href="#" onClick="document.getElementById('about-us').style.display='block'"><span class="glyphicon glyphicon-envelope"></span>&nbsp;About Us</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-cog"></span>&nbsp;Settings</a></li>
+      </ul>
     </div>
-    </a>
   </div>
-  <br>
+</nav>
+
+<div class="container-fluid">
+  <div class="stats-container row">
+    <div class="stats-content-options">
+      <a href="Statistics.html" class="col-xs-12 col-sm-6 col-lg-3"><div class="stats-box-1">
+        <div class="comment-section col-xs-12">
+          <span class="individual-stats">My Statistics</span>
+        </div>
+      </div>
+      </a>
+      <a href="collective.html" class="col-xs-12 col-sm-6 col-lg-3"><div class="stats-box-2">
+        <div class="comment-section col-xs-12">
+          <span class="individual-stats">Collective Statistics</span>
+        </div>
+      </div></a>
+      <a href="" class="col-xs-12 col-sm-6 col-lg-3"><div class="stats-box-3">
+        <div class="comment-section col-xs-12">
+          <span class="individual-stats">Remarks</span>
+        </div>
+      </div></a>
+      <a href="" class="col-xs-12 col-sm-6 col-lg-3">
+        <div class="comment-container">
+          <div class="comment-section col-xs-12">
+            <span class="individual-stats">Comments</span>
+            <div class="message">
+              <span class="message-content">Going Good. Keep up the good work !</span>
+              <span class="message-sender">Shahrukh Khan</span>
+            </div>
+          </div>
+      </div>
+      </a>
+    </div>
+    <br>
+  </div>
+
+  <div class="col-container row">
+    <div class="col-container-barchart col-xs-12">
+        <div id='myChart' height="500px" width="1345px"></div>
+    </div>
+    <div class="col-container-classmark col-xs-12">
+      <span class="heading">Class Statistics</span>
+      <span class="class-statistics">
+        Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
+        Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
+        Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
+        Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
+        Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
+        Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
+        Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
+        Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
+        Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
+        Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
+        Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
+        Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
+        Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
+        Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
+        Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
+        Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
+        Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
+        Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
+        Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
+        Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
+        Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
+        Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
+        Mehul Sachdeva scored <b>9/10</b> in quiz 1, <b>10/10</b> in quiz 2 and <b>9/10</b> in quiz 3<br>
+      </span>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -120,7 +143,8 @@
       id: 'myChart',
       data: myConfig,
       height: "100%",
-      width: "100%"
+      width: "100%",
+      
     });
 
 </script>

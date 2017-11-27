@@ -1,25 +1,3 @@
-
-nav ul{
-	width: 100%;
-	position: relative;
-	background: black;
-	opacity: 0.9;
-	overflow: hidden;
-	z-index:100;
-}
-
-nav ul li{
-	font-size: 20px;
-	display: inline-block;
-	padding: 20px 20px;
-	color:white;
-}
-
-nav ul .list-item{
-	position: relative;
-	left:42%;
-}
-
 nav ul li:hover{
 	background: #273746;
 }
@@ -48,20 +26,9 @@ nav ul li:hover{
 	color:white;
 }
 
-.stats-content{
-	position: absolute;
-	left:70px;
-	top:440px;
-	height:200px;
-	width:800px;
-	font-size: 22px;
-}
-
 .stats-content-main{
 	padding: 0 20px;
 }
-
-
 
 #chartContainer{
 	height: 325px;
@@ -69,125 +36,90 @@ nav ul li:hover{
 }
 
 .stats-content-options{
-	position: absolute;
-	top:35px;
-	left:30px;
-	width:1400px;
 	height:300px;
+	margin-top: 35px; 
+}
+
+.stats-content-options > a {
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
 }
 
 .stats-box-1{
-	position: relative;
-	left:0;
-	display: inline-block;
-	height:290px;
-	width:310px;
+	height:260px;
 	border: 0;
-	top:0px;
 	border-radius: 2px;
 	background: #E74C3C;
 }
 
 .individual-stats{
-	position: relative;
-	top:52px;
-	left:35px;
-	font-size: 40px;
+	font-size: 2.75em;
 	color:white;
 	font-weight: bolder;
+	padding-left: 5px;
 }
 
 
 .stats-box-2{
-	top:57px;
-	display: inline-block;
-	position: relative;
-	left:5px;
-	height: 290px;
-	width:310px;
+	height: 260px;
 	background: #85C1E9;
 	border:0;
 	border-radius: 2px;
 }
 
 .stats-box-3{
-	display: inline-block;
-	position: relative;
-	left:10px;
-	top:1px;
-	height: 290px;
-	width: 310px;
+	height: 260px;
 	background: #52BE80;
 	border: 0;
 	border-radius: 2px;
 }
 
-.comment-section{
-	display: inline-block;
-	position: relative;
-	top:64px;
-	left:15px;
-	height:290px;
-	width:330px;
+.comment-container{
+	height:260px;
 	background: #F4D03F;
 	border: 0;
 	border-radius: 2px;
 }
 
+.comment-section{
+	top:10%;
+}
+
 
 .message{
-	position: relative;
-	height: 150px;
-	top:70px;
-	width:280px;
-	left:22px;
+	height: 100%;
 	background: #F9E79F;
 	border-radius: 5px;
+	display: inline-block;
 }
 
 .message-content{
-	position: relative;
-	top:40px;
-	left:20px;
-	font-size: 20px;
-
+	font-size: 1.33em;
+    padding: 5px 5px 14% 5px;
+    display: block;
 }
 
 .message-sender{
-	position: relative;
-	top:85px;
-	left:50px;
-	font-size:15px;
+	font-size:1.1em;
 	font-weight: bold;
+	padding-right: 3%;
+	padding-bottom: 3%;
+	display: block;
+	text-align:right;
 }
 
 .col-container-barchart{
-	position: relative;
-	top:280px;
 	height: 500px;
-	width:1345px;
-	background: grey;
-	left:10px;
-}
-
-.col-container-classmark{
-	font-size: 23px;
-	height: 1000px;
-	width:1345px;
-	position: relative;
-	top:95px;
-	left:10px;
 }
 
 .heading{
-	position: relative;
-	top:150px;
-	font-size: 45px;
+	font-size: 2.5em;
 	font-weight: bolder;
+	text-align: center;
+	display: block;
 }
 
 .class-statistics{
-	position: relative;
-	left:40px;
-	top:170px;
+	font-size: 1.75em;
 }

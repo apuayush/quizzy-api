@@ -11,31 +11,25 @@ a{color:inherit;text-decoration:none}
 
 .login-wrap{
     width:100%;
-    margin:5% auto auto;
-    max-width:525px;
-    min-height:670px;
-    position:relative; ;
-    display: block;
-    background:url(../img/login-bg.jpg) no-repeat center;
-    box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+    height: 100vh;
+    background:url(../img/login-bg.jpg) center no-repeat;
+    background-size: 120% auto;
+    position: fixed;
+    /* box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19); */
 }
 .login-html{
-    width:100%;
-    height:100%;
-    position:absolute;
-    padding:90px 70px 50px 70px;
-    background:rgba(250,157,0,.5);
+    height: 100%;
+    padding: 11% 5% 0 5%;
+    background: rgba(250,157,0,.5);
 }
 .login-html .sign-in-htm,
 .login-html .sign-up-htm{
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    position:absolute;
-    transform:rotateY(180deg);
-    backface-visibility:hidden;
-    transition:all .4s linear;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    transition: all .4s linear;
 }
 .login-html .sign-in,
 .login-html .sign-up,
@@ -48,26 +42,26 @@ a{color:inherit;text-decoration:none}
     text-transform:uppercase;
 }
 .login-html .tab{
-    font-size:22px;
-    margin-right:15px;
-    padding-bottom:5px;
-    margin:0 15px 10px 0;
-    display:inline-block;
+    font-size:1.5em;
     border-bottom:2px solid transparent;
 }
+
+.signIn{
+    margin-right:15px;
+}
+
 .login-html .sign-in:checked + .tab,
 .login-html .sign-up:checked + .tab{
     color:#fff;
     border-color:#1161ee;
 }
 .login-form{
-    min-height:345px;
-    position:relative;
+    margin-top: 15px;
     perspective:1000px;
     transform-style:preserve-3d;
 }
 .login-form .group{
-    margin-bottom:15px;
+    margin-bottom: 10px;
 }
 .login-form .group .label,
 .login-form .group .input,
@@ -78,8 +72,10 @@ a{color:inherit;text-decoration:none}
 }
 .login-form .group .input,
 .login-form .group .button{
+    margin-top: 5px;
+    font-size: 1em;
     border:none;
-    padding:15px 20px;
+    padding:0.5% 1%;
     border-radius:25px;
     background:rgba(255,255,255,.1);
 }
@@ -89,7 +85,7 @@ a{color:inherit;text-decoration:none}
 }
 .login-form .group .label{
     color:#aaa;
-    font-size:12px;
+    font-size:1em;
 }
 .login-form .group .button{
     background:#1161ee;
@@ -143,9 +139,54 @@ a{color:inherit;text-decoration:none}
 
 .hr{
     height:2px;
-    margin:60px 0 50px 0;
+    margin:3px 0;
     background:rgba(255,255,255,.2);
 }
 .foot-lnk{
     text-align:center;
+}
+.foot-lnk > a{
+    font-size: 1em;
+}
+
+@media only screen and (min-width:321px){
+    .login-wrap{
+        background-size: 99% auto;
+    }
+}
+
+@media only screen and (min-width:425px){
+    .login-wrap{
+        background-size: 85% auto;
+        position: inherit;
+        margin: 0 auto;
+    }
+
+    .login-html {
+        padding: 11% 8% 0 8%;
+    }
+}
+
+@media only screen and (min-width:768px){
+    .login-wrap{
+        max-width: 75%;
+    }
+
+    .login-html {
+        padding-top: 5%;
+    }
+}
+
+@media only screen and (min-width:1024px){
+    .login-wrap{
+        max-width: 45.5%;
+    }
+
+    .login-html{
+        padding: 5% 12% 0 12%;
+    }
+
+    .login-form .group .input, .login-form .group .button{
+        padding:2.25% 5%;
+    }
 }
